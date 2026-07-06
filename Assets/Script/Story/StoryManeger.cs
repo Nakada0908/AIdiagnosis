@@ -14,7 +14,7 @@ public class StoryManeger : MonoBehaviour
     [SerializeField] private TextMeshProUGUI storyText;
     [SerializeField] private TextMeshProUGUI characterName;
 
-    public int storyIndex;
+    private int storyIndex;
     public int textIndex;
     private int dataIndex;
     private int diagnosesIndex;
