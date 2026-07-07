@@ -53,11 +53,7 @@ public class BuildAutomation
             scenePaths[i] = scenes[i].path;
         }
 
-        //現在時刻を取得してフォーマットする（例: 20260707_1209）
-        string timestamp = System.DateTime.Now.ToString("yyyyMMdd_HHmm");
-
-        //ターゲットごとに保存先フォルダを分ける
-        string buildPath = "Builds/" + target.ToString() + "/" + Application.productName + "_" + timestamp;
+        string buildPath = "Builds/" + target.ToString() + "/" + Application.productName;
 
         if ((options & BuildOptions.Development) != 0)
         {
@@ -70,6 +66,7 @@ public class BuildAutomation
         BuildPlayerOptions buildPlayerOptions = new BuildPlayerOptions();
         buildPlayerOptions.scenes = scenePaths;
         buildPlayerOptions.locationPathName = buildPath;
+
         //引数で受け取ったターゲットを設定する
         buildPlayerOptions.target = target;
         buildPlayerOptions.options = options;
