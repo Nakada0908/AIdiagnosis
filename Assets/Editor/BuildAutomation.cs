@@ -53,7 +53,17 @@ public class BuildAutomation
             scenePaths[i] = scenes[i].path;
         }
 
-        string buildPath = "Builds/" + target.ToString() + "/" + Application.productName;
+        string buildType;
+        if ((options & BuildOptions.Development) != 0)
+        {
+            buildType = "Debug";
+        }
+        else
+        {
+            buildType = "Release";
+        }
+
+        string buildPath = "Builds/" + target.ToString() + "/" + buildType + "/" + Application.productName;
 
         if ((options & BuildOptions.Development) != 0)
         {
