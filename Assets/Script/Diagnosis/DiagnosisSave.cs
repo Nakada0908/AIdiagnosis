@@ -7,9 +7,9 @@ public class GameDiagnosisData
     public List<Diagnosis> records = new List<Diagnosis>();
 }
 
-public class ChoiceWritingOutput : MonoBehaviour
+public class DiagnosisSave : MonoBehaviour
 {
-    public static ChoiceWritingOutput Instance;
+    public static DiagnosisSave Instance;
 
     public static GameDiagnosisData currentData = new GameDiagnosisData();
 

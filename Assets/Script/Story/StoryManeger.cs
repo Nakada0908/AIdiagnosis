@@ -15,15 +15,13 @@ public class StoryManeger : MonoBehaviour
     [SerializeField] private TextMeshProUGUI characterName;
 
     private int storyIndex;
-    public int textIndex;
-    private int dataIndex;
+    private int textIndex;
     private int diagnosesIndex;
+    private int questionIndex;
 
     private bool finishText = false;
     private bool isWaitChoice = false;
     private bool isWaitInput = false;
-
-    [SerializeField] private SoundManager soundManeger;
 
     private InputSystem_Actions input;
 
@@ -64,6 +62,7 @@ public class StoryManeger : MonoBehaviour
         ++textIndex;
         storyText.text = "";
         ProgressionStory(storyIndex);
+        ProgressionDiagnoses(diagnosesIndex);
     }
 
     private void ProgressionStory(int _storyIndex)
@@ -74,15 +73,24 @@ public class StoryManeger : MonoBehaviour
         }
         else
         {
-            //ChangeStoryElent();
-            return;
+            ChangeStoryElent();
+        }
+    }
+
+    private void ProgressionDiagnoses(int _diagnosesIndex)
+    {
+       if(questionIndex < diagnosisDatas[_diagnosesIndex].diagnoses.Count)
+       {
+            SetDiagnosesElement(diagnosesIndex, questionIndex);
+       }
+       else
+       {
+            ChangeDiagnosesElement();
         }
     }
 
     private void SetStoryElement(int _storyIndex,int _textIndex)
     {
-        //soundManeger.PlayBGM(storyDatas[_storyIndex].bgm);
-
         var storyElement= storyDatas[_storyIndex].storys[_textIndex];
 
         background.sprite = storyElement.BackGround;
@@ -90,6 +98,13 @@ public class StoryManeger : MonoBehaviour
         characterName.text = storyElement.CharacterName;
         //ストーリーのテキストを1文字ずつ表示する
         StartCoroutine(TypeSentence(_storyIndex, _textIndex));
+    }
+
+    private void SetDiagnosesElement(int _diagnosesIndex, int _questionIndex)
+    {
+        var diagnosesElement = diagnosisDatas[_diagnosesIndex].diagnoses[_questionIndex];
+
+
     }
 
     private IEnumerator TypeSentence(int _storyIndex, int _textIndex)
@@ -106,7 +121,7 @@ public class StoryManeger : MonoBehaviour
         if (storyDatas[_storyIndex].storys[_textIndex].isChoice)
         {
             isWaitChoice = true;
-            Diagnosis currentDiagnosis = diagnosisDatas[dataIndex].diagnoses[diagnosesIndex];
+            Diagnosis currentDiagnosis = diagnosisDatas[diagnosesIndex].diagnoses[questionIndex];
             ChoiceButtonManager.Instance.ONChoiceButton(currentDiagnosis);
             diagnosesIndex++;
         }
@@ -114,7 +129,7 @@ public class StoryManeger : MonoBehaviour
         if (storyDatas[_storyIndex].storys[_textIndex].isWriting)
         {
             isWaitInput = true; 
-            Diagnosis currentDiagnosis = diagnosisDatas[dataIndex].diagnoses[diagnosesIndex];
+            Diagnosis currentDiagnosis = diagnosisDatas[diagnosesIndex].diagnoses[questionIndex];
             WritingManeger.Instance.ONInputField(currentDiagnosis);
             diagnosesIndex++;
         }
@@ -125,5 +140,12 @@ public class StoryManeger : MonoBehaviour
         textIndex = 0;
         storyIndex++;
         SetStoryElement(storyIndex, textIndex);
+    }
+
+    private void ChangeDiagnosesElement()
+    {
+        questionIndex = 0;
+        diagnosesIndex++;
+        SetDiagnosesElement(diagnosesIndex, questionIndex);
     }
 }

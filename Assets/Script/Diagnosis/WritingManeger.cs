@@ -58,7 +58,7 @@ public class WritingManeger : MonoBehaviour
         diagnosisElement.answer = answerInputField.text;
         diagnosisElement.answerTime = timer;
 
-        ChoiceWritingOutput.Instance.SaveChoiceToText(diagnosisElement);
+        DiagnosisSave.Instance.SaveChoiceToText(diagnosisElement);
         OFFInputField();
         finishWriting = true;
     }

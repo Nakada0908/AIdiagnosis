@@ -5,7 +5,7 @@ public class JudgeEnding : MonoBehaviour
 {
     public static JudgeEnding Instance;
 
-    public string endSceneName;
+    [HideInInspector] public string endSceneName;
 
     private void Awake()
     {

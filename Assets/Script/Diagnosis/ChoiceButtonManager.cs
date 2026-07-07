@@ -8,6 +8,7 @@ public class ChoiceButtonManager : MonoBehaviour
     public static ChoiceButtonManager Instance;
 
     public Button[] buttons;
+    public Button[] endingButtons;
 
     private Diagnosis diagnosisElement;
 
@@ -63,6 +64,31 @@ public class ChoiceButtonManager : MonoBehaviour
         }
     }
 
+    public void ONEndingButton(Diagnosis currentData)
+    {
+        finishChoice = false;
+        diagnosisElement = currentData;
+        timer = 0f;
+
+        for (int i = 0; i < endingButtons.Length; i++)
+        {
+            endingButtons[i].gameObject.SetActive(true);
+        }
+
+        endingButtons[0].GetComponentInChildren<TextMeshProUGUI>().text = diagnosisElement.question1;
+        endingButtons[1].GetComponentInChildren<TextMeshProUGUI>().text = diagnosisElement.question2;
+        endingButtons[2].GetComponentInChildren<TextMeshProUGUI>().text = diagnosisElement.question3;
+    }
+
+    public void OFFEndingButton()
+    {
+        for (int i = 0; i < endingButtons.Length; i++)
+        {
+            endingButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = "";
+            endingButtons[i].gameObject.SetActive(false);
+        }
+    }
+
 
     #region É{É^ÉìÇ…ÇÊÇÈèàóù
     public void OnChoiceButtonNum(int choiceNumber)
@@ -71,7 +97,7 @@ public class ChoiceButtonManager : MonoBehaviour
         diagnosisElement.answer = "";
         diagnosisElement.answerTime = timer;
 
-        ChoiceWritingOutput.Instance.SaveChoiceToText(diagnosisElement);
+        DiagnosisSave.Instance.SaveChoiceToText(diagnosisElement);
         finishChoice = true;
     }
 

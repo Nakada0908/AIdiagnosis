@@ -1,3 +1,4 @@
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
@@ -8,21 +9,11 @@ public class DebugSceneChanger : MonoBehaviour
     private static void AutoInitialize()
     {
         //Bootstrapシーンが読み込まれていなければ加算ロードする
-        const string BOOTSTRAP_SCENE = "Bootstrap";
-        bool isBootstrapLoaded = false;
+        const string bootstrapScene = "Bootstrap";
 
-        for (int i = 0; i < SceneManager.sceneCount; i++)
+        if (!SceneManager.GetSceneByName(bootstrapScene).isLoaded)
         {
-            if (SceneManager.GetSceneAt(i).name == BOOTSTRAP_SCENE)
-            {
-                isBootstrapLoaded = true;
-                break;
-            }
-        }
-
-        if (!isBootstrapLoaded)
-        {
-            SceneManager.LoadScene(BOOTSTRAP_SCENE, LoadSceneMode.Additive);
+            SceneManager.LoadScene(bootstrapScene, LoadSceneMode.Additive);
         }
 
         //キー入力を常時監視するデバッグ用オブジェクトを動的に生成する
@@ -59,3 +50,4 @@ public class DebugSceneChanger : MonoBehaviour
         }
     }
 }
+#endif
