@@ -7,7 +7,7 @@ public class BuildAutomation
     [MenuItem("Build/Windows/Development Version")]
     public static void BuildWindowsDevelopment()
     {
-        ExecuteBuild(BuildOptions.Development | BuildOptions.ConnectWithProfiler, BuildTarget.StandaloneWindows64, ".exe");
+        ExecuteBuild(BuildOptions.Development, BuildTarget.StandaloneWindows64, ".exe");
     }
 
     [MenuItem("Build/Windows/Release Version")]
@@ -20,7 +20,7 @@ public class BuildAutomation
     [MenuItem("Build/Android/Development Version")]
     public static void BuildAndroidDevelopment()
     {
-        ExecuteBuild(BuildOptions.Development | BuildOptions.ConnectWithProfiler, BuildTarget.Android, ".apk");
+        ExecuteBuild(BuildOptions.Development, BuildTarget.Android, ".apk");
     }
 
     [MenuItem("Build/Android/Release Version")]
@@ -33,7 +33,7 @@ public class BuildAutomation
     [MenuItem("Build/WebGL/Development Version")]
     public static void BuildWebGLDevelopment()
     {
-        ExecuteBuild(BuildOptions.Development | BuildOptions.ConnectWithProfiler, BuildTarget.WebGL, "");
+        ExecuteBuild(BuildOptions.Development, BuildTarget.WebGL, "");
     }
 
     [MenuItem("Build/WebGL/Release Version")]
@@ -63,7 +63,7 @@ public class BuildAutomation
             buildType = "Release";
         }
 
-        string buildPath = "Builds/" + target.ToString() + "/" + buildType + "/" + Application.productName;
+        string buildPath = "Build/" + target.ToString() + "/" + buildType + "/" + Application.productName;
 
         if ((options & BuildOptions.Development) != 0)
         {
