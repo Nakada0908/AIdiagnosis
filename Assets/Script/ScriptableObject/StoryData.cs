@@ -2,7 +2,22 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "StartNovel", menuName = "StoryData")]
+public enum End
+{
+    Happy, Bad, MerryBad,
+    douzyou, nodouzyou, hannhann
+}
+
+public enum StoryType
+{
+    None,
+    Story,
+    Choice,
+    Writing,
+    JudgeEnding,
+}
+
+[CreateAssetMenu(fileName = "StoryData", menuName = "StoryData")]
 public class StoryData : ScriptableObject
 {
     public List<Story> storys= new List<Story>();
@@ -17,7 +32,20 @@ public class Story
     [TextArea]
     public string StoryText;
     public string CharacterName;
-    public bool isChoice;
-    public bool isWriting;
+    public StoryType StoryType;
+    public Diagnosis diagnosis;
+    public AudioClip voiceClip;
     public AudioClip seClip;
+}
+
+[System.Serializable]
+public class Diagnosis
+{
+    public string question1;
+    public string question2;
+    public string question3;
+    public int choiceNum;
+
+    public string answer;
+    public float answerTime;
 }

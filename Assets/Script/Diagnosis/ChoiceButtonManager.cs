@@ -39,10 +39,10 @@ public class ChoiceButtonManager : MonoBehaviour
         }
     }
 
-    public void ONChoiceButton(Diagnosis currentData)
+    public void ONChoiceButton(Diagnosis diagnosis)
     {
         finishChoice = false;
-        diagnosisElement = currentData;
+        //diagnosisElement = currentData;
         timer = 0f;
 
         for (int i = 0; i < buttons.Length; i++)
@@ -50,9 +50,9 @@ public class ChoiceButtonManager : MonoBehaviour
             buttons[i].gameObject.SetActive(true);
         }
 
-        buttons[0].GetComponentInChildren<TextMeshProUGUI>().text = diagnosisElement.question1;
-        buttons[1].GetComponentInChildren<TextMeshProUGUI>().text = diagnosisElement.question2;
-        buttons[2].GetComponentInChildren<TextMeshProUGUI>().text = diagnosisElement.question3;
+        buttons[0].GetComponentInChildren<TextMeshProUGUI>().text = diagnosis.question1;
+        buttons[1].GetComponentInChildren<TextMeshProUGUI>().text = diagnosis.question2;
+        buttons[2].GetComponentInChildren<TextMeshProUGUI>().text = diagnosis.question3;
     }
 
     public void OFFChoiceButton()
@@ -64,10 +64,10 @@ public class ChoiceButtonManager : MonoBehaviour
         }
     }
 
-    public void ONEndingButton(Diagnosis currentData)
+    public void ONEndingButton(Diagnosis diagnosis)
     {
         finishChoice = false;
-        diagnosisElement = currentData;
+        //diagnosisElement = currentData;
         timer = 0f;
 
         for (int i = 0; i < endingButtons.Length; i++)
@@ -75,9 +75,10 @@ public class ChoiceButtonManager : MonoBehaviour
             endingButtons[i].gameObject.SetActive(true);
         }
 
-        endingButtons[0].GetComponentInChildren<TextMeshProUGUI>().text = diagnosisElement.question1;
-        endingButtons[1].GetComponentInChildren<TextMeshProUGUI>().text = diagnosisElement.question2;
-        endingButtons[2].GetComponentInChildren<TextMeshProUGUI>().text = diagnosisElement.question3;
+        endingButtons[0].GetComponentInChildren<TextMeshProUGUI>().text = diagnosis.question1;
+        endingButtons[1].GetComponentInChildren<TextMeshProUGUI>().text = diagnosis.question2;
+        endingButtons[2].GetComponentInChildren<TextMeshProUGUI>().text = diagnosis.question3;
+
     }
 
     public void OFFEndingButton()
