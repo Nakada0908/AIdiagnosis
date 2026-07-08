@@ -27,12 +27,12 @@ public class StoryData : ScriptableObject
 [System.Serializable]
 public class Story
 {
-    public Sprite BackGround;
-    public Sprite CharacterImage;
+    public Sprite backGround;
+    public Sprite characterImage;
     [TextArea]
-    public string StoryText;
-    public string CharacterName;
-    public StoryType StoryType;
+    public string storyText;
+    public string characterName;
+    public StoryType storyType;
     public Diagnosis diagnosis;
     public AudioClip voiceClip;
     public AudioClip seClip;

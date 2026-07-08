@@ -78,9 +78,9 @@ public class StoryManeger : MonoBehaviour
     {
         var storyElement = storyDatas[_storyIndex].storys[_textIndex];
 
-        background.sprite = storyElement.BackGround;
-        characterImage.sprite = storyElement.CharacterImage;
-        characterName.text = storyElement.CharacterName;
+        background.sprite = storyElement.backGround;
+        characterImage.sprite = storyElement.characterImage;
+        characterName.text = storyElement.characterName;
         //ストーリーのテキストを1文字ずつ表示する
         StartCoroutine(TypeSentence(_storyIndex, _textIndex));
     }
@@ -88,7 +88,7 @@ public class StoryManeger : MonoBehaviour
     private IEnumerator TypeSentence(int _storyIndex, int _textIndex)
     {
         //1文字ずつ表示する
-        foreach (char letter in storyDatas[_storyIndex].storys[_textIndex].StoryText.ToCharArray())
+        foreach (char letter in storyDatas[_storyIndex].storys[_textIndex].storyText.ToCharArray())
         {
             storyText.text += letter;
             yield return new WaitForSeconds(0.01f);
