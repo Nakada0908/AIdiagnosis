@@ -29,7 +29,7 @@ public class TextWindowManager : MonoBehaviour
         background.sprite = story.backGround;
         characterImage.sprite = story.characterImage;
         characterName.text = story.characterName;
-        //storyText.text = "";//Ç»ÇÒÇ≈Ç±ÇÍÇæÇµÇΩÅH
+        storyText.text = "";
 
         StartCoroutine(TypeSentence(story.storyText, onComplete));
     }
