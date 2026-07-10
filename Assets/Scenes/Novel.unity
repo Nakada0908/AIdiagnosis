@@ -151,6 +151,7 @@ Transform:
   - {fileID: 2143880336}
   - {fileID: 456107630}
   - {fileID: 1793548987}
+  - {fileID: 1940272999}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &210142228
@@ -2672,6 +2673,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1886560529}
   m_CullTransparentMesh: 1
+--- !u!1 &1940272998
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1940272999}
+  - component: {fileID: 1940273000}
+  m_Layer: 0
+  m_Name: TextWindowManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1940272999
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940272998}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -519.7539, y: -222.89583, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 112364739}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1940273000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940272998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81bab6b8d237ec94ab0e572f34cbb600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  background: {fileID: 2133554215}
+  characterImage: {fileID: 210142231}
+  storyText: {fileID: 2016241558}
+  characterName: {fileID: 1097221920}
 --- !u!1 &2016241555
 GameObject:
   m_ObjectHideFlags: 0
@@ -3191,16 +3240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f22a2c3b78f1504f8e7c154a570fb15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  storyDatas:
-  - {fileID: 11400000, guid: fd0d57bd533bc5f4db0d0c61c7cebc81, type: 2}
-  - {fileID: 11400000, guid: e3a6c608879d359448a8e59a94dc814c, type: 2}
-  diagnosisDatas:
-  - {fileID: 11400000, guid: 6d9223a91caca594396e5c30e8f0727c, type: 2}
-  - {fileID: 11400000, guid: 5e32b12851369f54eaf21de411b22642, type: 2}
-  background: {fileID: 2133554215}
-  characterImage: {fileID: 210142231}
-  storyText: {fileID: 2016241558}
-  characterName: {fileID: 1097221920}
+  storyData: {fileID: 11400000, guid: c23091b1210b6304a9223dc19b909578, type: 2}
 --- !u!4 &2143880336
 Transform:
   m_ObjectHideFlags: 0

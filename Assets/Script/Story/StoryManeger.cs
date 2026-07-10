@@ -1,122 +1,105 @@
-using System.Collections;
-using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
-public class StoryManeger : MonoBehaviour
+enum CurrentState
 {
-    [SerializeField] private StoryData[] storyDatas;
-    [SerializeField] private Diagnosis[] diagnosisDatas;
+    Story,
+    Choice,
+    Writing,
+    End
+}
 
-    [SerializeField] private Image background;
-    [SerializeField] private Image characterImage;
-    [SerializeField] private TextMeshProUGUI storyText;
-    [SerializeField] private TextMeshProUGUI characterName;
-
+public class StoryManager : MonoBehaviour
+{
+    [SerializeField] private StoryData storyData;
     private int storyIndex;
-    private int textIndex;
-
     private bool finishText = false;
-    private bool isWaitChoice = false;
-    private bool isWaitInput = false;
 
     private InputSystem_Actions input;
+
+    private CurrentState cs;
 
     private void Start()
     {
         input = InputManager.Instance.input;
-
-        storyText.text = "";
-        characterName.text = "";
-        SetStoryElement(storyIndex, textIndex);
+        PlayCurrentText();
     }
 
     private void Update()
     {
-        if (isWaitChoice && ChoiceButtonManager.Instance.finishChoice)
+        switch (cs)
         {
-            isWaitChoice = false;
-            ChoiceButtonManager.Instance.OFFChoiceButton();
+            case CurrentState.Story:
+                if (finishText && input.NovelControls.NextText.WasPressedThisFrame())
+                {
+                    finishText = false;
+                    NextText();
+                }
+                break;
+            case CurrentState.Choice:
+                if (ChoiceButtonManager.Instance.finishChoice)
+                {
+                    ChoiceButtonManager.Instance.OFFChoiceButton();
+                    NextText();
+                }
+                break;
+            case CurrentState.Writing:
+                if (WritingManager.Instance.finishWriting)
+                {
+                    NextText();
+                }
+                break;
+            case CurrentState.End:
 
-            NextText();
+                break;
         }
+    }
 
-        if (isWaitInput && WritingManeger.Instance.finishWriting)
-        {
-            isWaitInput = false;
-            NextText();
-        }
-
-        if (input.NovelControls.NextText.WasPressedThisFrame() && finishText && !isWaitChoice)
-        {
-            NextText();
-        }
+    private void PlayCurrentText()
+    {
+        cs = CurrentState.Story;
+        var storyElement = storyData.storys[storyIndex];
+        //引数にはstoryElementとコールバック関数を渡す
+        TextWindowManager.Instance.ShowText(storyElement, OnStoryComplete);
     }
 
     private void NextText()
     {
-        finishText = false;
-        ++textIndex;
-        storyText.text = "";
-        ProgressionStory(storyIndex);
-    }
-
-    private void ProgressionStory(int _storyIndex)
-    {
-        if (textIndex < storyDatas[_storyIndex].storys.Count)
+        ++storyIndex;
+        if (storyIndex < storyData.storys.Count)
         {
-            SetStoryElement(storyIndex, textIndex);
+            PlayCurrentText();
         }
         else
         {
-            ChangeStoryElent();
+            cs = CurrentState.End;
+            Debug.Log("ストーリー終了");
         }
     }
 
-    private void SetStoryElement(int _storyIndex, int _textIndex)
+    private void OnStoryComplete()
     {
-        var storyElement = storyDatas[_storyIndex].storys[_textIndex];
+        var storyElement = storyData.storys[storyIndex];
 
-        background.sprite = storyElement.backGround;
-        characterImage.sprite = storyElement.characterImage;
-        characterName.text = storyElement.characterName;
-        //ストーリーのテキストを1文字ずつ表示する
-        StartCoroutine(TypeSentence(_storyIndex, _textIndex));
-    }
-
-    private IEnumerator TypeSentence(int _storyIndex, int _textIndex)
-    {
-        //1文字ずつ表示する
-        foreach (char letter in storyDatas[_storyIndex].storys[_textIndex].storyText.ToCharArray())
+        //データのStoryTypeを見て、次に何をするか（State）を決定し、1回だけUIを表示する
+        switch (storyElement.storyType)
         {
-            storyText.text += letter;
-            yield return new WaitForSeconds(0.01f);
+            case StoryType.Choice:
+                cs = CurrentState.Choice;
+                //インライン化されたデータを直接渡す
+                ChoiceButtonManager.Instance.ONChoiceButton(storyElement.diagnosis);
+                break;
+
+            case StoryType.Writing:
+                cs = CurrentState.Writing;
+                //インライン化されたデータを直接渡す
+                WritingManager.Instance.ONInputField(storyElement.diagnosis);
+                break;
+
+            case StoryType.None:
+                cs = CurrentState.Story;
+                //だだのテキスト進行の場合はクリック待機状態にする
+                finishText = true;
+                break;
         }
-
-        finishText = true;
-
-        //if (storyDatas[_storyIndex].storys[_textIndex].isChoice)
-        //{
-        //    isWaitChoice = true;
-        //    Diagnosis currentDiagnosis = diagnosisDatas[diagnosesIndex].diagnoses[questionIndex];
-        //    ChoiceButtonManager.Instance.ONChoiceButton(currentDiagnosis);
-        //    diagnosesIndex++;
-        //}
-
-        //if (storyDatas[_storyIndex].storys[_textIndex].isWriting)
-        //{
-        //    isWaitInput = true;
-        //    Diagnosis currentDiagnosis = diagnosisDatas[diagnosesIndex].diagnoses[questionIndex];
-        //    WritingManeger.Instance.ONInputField(currentDiagnosis);
-        //    diagnosesIndex++;
-        //}
-    }
-
-    private void ChangeStoryElent()
-    {
-        textIndex = 0;
-        storyIndex++;
-        SetStoryElement(storyIndex, textIndex);
     }
 }

@@ -1,4 +1,3 @@
-using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -42,7 +41,7 @@ public class ChoiceButtonManager : MonoBehaviour
     public void ONChoiceButton(Diagnosis diagnosis)
     {
         finishChoice = false;
-        //diagnosisElement = currentData;
+        diagnosisElement = diagnosis;
         timer = 0f;
 
         for (int i = 0; i < buttons.Length; i++)
@@ -67,7 +66,7 @@ public class ChoiceButtonManager : MonoBehaviour
     public void ONEndingButton(Diagnosis diagnosis)
     {
         finishChoice = false;
-        //diagnosisElement = currentData;
+        diagnosisElement = diagnosis;
         timer = 0f;
 
         for (int i = 0; i < endingButtons.Length; i++)

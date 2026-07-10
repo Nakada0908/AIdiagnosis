@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class WritingManeger : MonoBehaviour
+public class WritingManager : MonoBehaviour
 {
-    public static WritingManeger Instance;
+    public static WritingManager Instance;
 
     [SerializeField] private InputField answerInputField;
     [SerializeField] private Button finishButton;

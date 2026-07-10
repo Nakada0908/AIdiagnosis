@@ -10,11 +10,11 @@ public enum End
 
 public enum StoryType
 {
-    None,
     Story,
     Choice,
     Writing,
     JudgeEnding,
+    None,
 }
 
 [CreateAssetMenu(fileName = "StoryData", menuName = "StoryData")]
@@ -44,8 +44,8 @@ public class Diagnosis
     public string question1;
     public string question2;
     public string question3;
+    //以下は今後ハイドインスペクターしようか
     public int choiceNum;
-
     public string answer;
     public float answerTime;
 }
