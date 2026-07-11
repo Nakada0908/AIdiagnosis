@@ -54,14 +54,6 @@ public class StoryManager : MonoBehaviour
         }
     }
 
-    private void PlayCurrentText()
-    {
-        cs = CurrentState.Story;
-        var storyElement = storyData.storys[storyIndex];
-        //引数にはstoryElementとコールバック関数を渡す
-        TextWindowManager.Instance.ShowText(storyElement, OnStoryComplete);
-    }
-
     private void NextText()
     {
         ++storyIndex;
@@ -73,6 +65,20 @@ public class StoryManager : MonoBehaviour
         {
             cs = CurrentState.End;
             Debug.Log("ストーリー終了");
+        }
+    }
+
+    private void PlayCurrentText()
+    {
+        cs = CurrentState.Story;
+        var storyElement = storyData.storys[storyIndex];
+        //引数にはstoryElementとコールバック関数を渡す
+        TextWindowManager.Instance.ShowText(storyElement, OnStoryComplete);
+
+        //サウンドの再生を依頼する
+        if (storyElement.voiceClip != null)
+        {
+            //SoundManager.Instance.PlayVoice(storyElement.voiceClip);
         }
     }
 

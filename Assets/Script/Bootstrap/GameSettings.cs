@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameSettings : MonoBehaviour
 {
@@ -9,7 +10,14 @@ public class GameSettings : MonoBehaviour
         Screen.SetResolution(1280, 720, FullScreenMode.Windowed);
         InputManager.Instance.SwitchMode(InputMode.Novel);
 
-        MySceneManager.Instance.InitializeGame("Title");
+        //エディターでのテスト時はtitleを起動しないようにする
+        string activeSceneName = SceneManager.GetActiveScene().name;
+
+        if (activeSceneName == "Bootstrap")
+        {
+            MySceneManager.Instance.InitializeGame("Title");
+        }
+
         Destroy(gameObject);
     }
 }
