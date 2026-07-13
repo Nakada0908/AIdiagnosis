@@ -10,8 +10,9 @@ enum CurrentState
 
 public class StoryManager : MonoBehaviour
 {
-    [SerializeField] private StoryData storyData;
-    private int storyIndex;
+    [SerializeField] private StoryData[] storyData;
+    private int dataIndex = 0;
+    private int storyIndex = 0;
     private bool finishText = false;
 
     private InputSystem_Actions input;
@@ -21,6 +22,12 @@ public class StoryManager : MonoBehaviour
     private void Start()
     {
         input = InputManager.Instance.input;
+
+        if (storyData[dataIndex].bgmClip != null)
+        {
+            SoundManager.Instance.PlayBGM(storyData[dataIndex].bgmClip);
+        }
+
         PlayCurrentText();
     }
 
@@ -57,55 +64,78 @@ public class StoryManager : MonoBehaviour
     private void NextText()
     {
         ++storyIndex;
-        if (storyIndex < storyData.storys.Count)
+        if (storyIndex < storyData[dataIndex].storys.Count)
         {
             PlayCurrentText();
         }
+        else if(dataIndex < storyData.Length - 1)
+        {
+            ChangeStoryElent();
+        }
         else
         {
-            cs = CurrentState.End;
-            Debug.Log("ストーリー終了");
+            MySceneManager.Instance.ChangeScene("EndBefore");
         }
     }
 
     private void PlayCurrentText()
     {
         cs = CurrentState.Story;
-        var storyElement = storyData.storys[storyIndex];
+        var storyElement = storyData[dataIndex].storys[storyIndex];
+
+        if(storyElement.voiceClip != null)
+        {
+            SoundManager.Instance.PlayVoice(storyElement.voiceClip);
+        }
+        if(storyElement.seClip != null)
+        {
+            SoundManager.Instance.PlaySE(storyElement.seClip);
+        }
+
         //引数にはstoryElementとコールバック関数を渡す
         TextWindowManager.Instance.ShowText(storyElement, OnStoryComplete);
-
-        //サウンドの再生を依頼する
-        if (storyElement.voiceClip != null)
-        {
-            //SoundManager.Instance.PlayVoice(storyElement.voiceClip);
-        }
     }
 
     private void OnStoryComplete()
     {
-        var storyElement = storyData.storys[storyIndex];
+        var storyElement = storyData[dataIndex].storys[storyIndex];
 
         //データのStoryTypeを見て、次に何をするか（State）を決定し、1回だけUIを表示する
         switch (storyElement.storyType)
         {
+            case StoryType.Story:
+                cs = CurrentState.Story;
+                //だだのテキスト進行の場合はクリック待機状態にする
+                finishText = true;
+                break;
             case StoryType.Choice:
                 cs = CurrentState.Choice;
                 //インライン化されたデータを直接渡す
                 ChoiceButtonManager.Instance.ONChoiceButton(storyElement.diagnosis);
                 break;
-
             case StoryType.Writing:
                 cs = CurrentState.Writing;
                 //インライン化されたデータを直接渡す
                 WritingManager.Instance.ONInputField(storyElement.diagnosis);
                 break;
+            case StoryType.JudgeEnding:
+                cs = CurrentState.End;
 
+                break;
             case StoryType.None:
-                cs = CurrentState.Story;
-                //だだのテキスト進行の場合はクリック待機状態にする
-                finishText = true;
                 break;
         }
+    }
+    private void ChangeStoryElent()
+    {
+        storyIndex = 0;
+        dataIndex++;
+
+        if (storyData[dataIndex].bgmClip != null)
+        {
+            SoundManager.Instance.PlayBGM(storyData[dataIndex].bgmClip);
+        }
+
+        PlayCurrentText();
     }
 }

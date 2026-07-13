@@ -34,4 +34,9 @@ public class SoundManager : MonoBehaviour
     {
         seAudioSource.PlayOneShot(clip);
     }
+
+    public void PlayVoice(AudioClip clip)
+    {
+        seAudioSource.PlayOneShot(clip);
+    }
 }

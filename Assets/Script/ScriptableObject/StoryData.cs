@@ -44,7 +44,7 @@ public class Diagnosis
     public string question1;
     public string question2;
     public string question3;
-    //以下は今後ハイドインスペクターしようか
+    //以下は今後ハイドインスペクターしようか[HideInInspector]
     public int choiceNum;
     public string answer;
     public float answerTime;

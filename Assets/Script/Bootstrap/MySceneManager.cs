@@ -1,6 +1,7 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Collections;
 
 public class MySceneManager : MonoBehaviour
 {
@@ -8,6 +9,11 @@ public class MySceneManager : MonoBehaviour
 
     private string currentLoadScene = "";
     private bool isLoading = false;
+
+    private List<string> baseScenes = new List<string>
+    {
+        "Bootstrap",
+    };
 
     private void Awake()
     {
@@ -18,6 +24,20 @@ public class MySceneManager : MonoBehaviour
         }
 
         Instance = this;
+    }
+
+    private void Start()
+    {
+        for (int i = 0; i < SceneManager.sceneCount; i++)
+        {
+            Scene crrnetEditorScene = SceneManager.GetSceneAt(i);
+            //常駐シーンリストに含まれていないシーンを現在のメインシーンとして認識する
+            if (!baseScenes.Contains(crrnetEditorScene.name))
+            {
+                currentLoadScene = crrnetEditorScene.name;
+                break;
+            }
+        }
     }
 
     public void InitializeGame(string firstSceneName)
