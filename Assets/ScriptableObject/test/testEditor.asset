@@ -51,7 +51,7 @@ MonoBehaviour:
     characterImage: {fileID: 0}
     storyText: 
     characterName: 
-    storyType: 0
+    storyType: 2
     diagnosis:
       question1: 
       question2: 

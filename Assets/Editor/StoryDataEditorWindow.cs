@@ -182,7 +182,7 @@ public class StoryDataEditorWindow : EditorWindow
         story.seClip = (AudioClip)EditorGUILayout.ObjectField("効果音 (SE)", story.seClip, typeof(AudioClip), false);
 
         //進行タイプに応じて診断データの入力枠を表示
-        if (story.storyType == StoryType.Choice || story.storyType == StoryType.Writing || story.storyType == StoryType.JudgeEnding)
+        if (story.storyType == StoryType.Choice || story.storyType == StoryType.JudgeEnding)
         {
             EditorGUILayout.Space();
             EditorGUILayout.BeginVertical("helpbox");
