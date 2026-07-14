@@ -66,8 +66,6 @@ public class ChoiceButtonManager : MonoBehaviour
     public void ONEndingButton(Diagnosis diagnosis)
     {
         finishChoice = false;
-        diagnosisElement = diagnosis;
-        timer = 0f;
 
         for (int i = 0; i < endingButtons.Length; i++)
         {

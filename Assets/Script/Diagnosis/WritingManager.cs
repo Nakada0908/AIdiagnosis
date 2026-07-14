@@ -54,6 +54,8 @@ public class WritingManager : MonoBehaviour
 
     public void FinishButton()
     {
+        diagnosisElement.question2 = "";
+        diagnosisElement.question3 = "";
         diagnosisElement.choiceNum = 0;
         diagnosisElement.answer = answerInputField.text;
         diagnosisElement.answerTime = timer;

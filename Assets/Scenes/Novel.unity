@@ -2813,8 +2813,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60
-  m_fontSizeBase: 60
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3242,8 +3242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   storyData:
-  - {fileID: 11400000, guid: 2547e8258bd26ba4f9fc4578dd8ebadf, type: 2}
-  - {fileID: 11400000, guid: e9fef2e4bc5d00f43926ca5964f7e24b, type: 2}
+  - {fileID: 11400000, guid: c23091b1210b6304a9223dc19b909578, type: 2}
 --- !u!4 &2143880336
 Transform:
   m_ObjectHideFlags: 0
@@ -3271,7 +3270,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ce9a7ba40240fa4fa3c37dc8fcca97a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  endSceneName: 
 --- !u!114 &2143880339
 MonoBehaviour:
   m_ObjectHideFlags: 0

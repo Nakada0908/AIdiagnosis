@@ -1,11 +1,10 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class JudgeEnding : MonoBehaviour
 {
     public static JudgeEnding Instance;
 
-    [HideInInspector] public string endSceneName;
+    private string endSceneName;
 
     private void Awake()
     {

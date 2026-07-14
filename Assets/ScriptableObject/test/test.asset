@@ -64,9 +64,23 @@ MonoBehaviour:
       question1: "\u3044\u3061\uFF5E"
       question2: "\u306B\uFF5E"
       question3: "\u3055\u3093\uFF5E"
-      choiceNum: 2
+      choiceNum: 3
       answer: 
-      answerTime: 0.9494776
+      answerTime: 1.0841593
+    voiceClip: {fileID: 0}
+    seClip: {fileID: 0}
+  - backGround: {fileID: 0}
+    characterImage: {fileID: 0}
+    storyText: "\u8A18\u8FF0\u5F0F\u306E\u8868\u793A\u3060\u3088\n\u541B\u306F\u3001\u305F\u3093\u3082\u3057\u3092\u898B\u308B\u3079\u304D\u3060\u3002"
+    characterName: "\u30C6\u30B9\u30C8\u30DE\u30F3"
+    storyType: 2
+    diagnosis:
+      question1: "\u8A18\u8FF0\u5F0F\u306E\u8868\u793A\u3060\u3088\n\u541B\u306F\u3001\u305F\u3093\u3082\u3057\u3092\u898B\u308B\u3079\u304D\u3060\u3002"
+      question2: 
+      question3: 
+      choiceNum: 0
+      answer: "\uFF48\uFF46"
+      answerTime: 2.999513
     voiceClip: {fileID: 0}
     seClip: {fileID: 0}
   bgmClip: {fileID: 0}
