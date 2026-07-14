@@ -78,7 +78,7 @@ public class StoryManager : MonoBehaviour
         }
         else
         {
-            MySceneManager.Instance.ChangeScene("EndBefore");
+            MySceneManager.Instance.ChangeScene("UISelect1");
         }
     }
 
