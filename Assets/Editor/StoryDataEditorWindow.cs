@@ -83,14 +83,21 @@ public class StoryDataEditorWindow : EditorWindow
         targetData.bgmClip = (AudioClip)EditorGUILayout.ObjectField("全体のBGM", targetData.bgmClip, typeof(AudioClip), false);
         EditorGUILayout.Space();
 
+        // リスト操作用のボタン群（末尾追加、選択行の下に追加、削除）
         EditorGUILayout.BeginHorizontal();
-        if (GUILayout.Button("＋ セリフ追加"))
+        if (GUILayout.Button("＋ 末尾に追加"))
         {
             targetData.storys.Add(new Story());
             selectedIndex = targetData.storys.Count - 1;
         }
         if (selectedIndex >= 0 && selectedIndex < targetData.storys.Count)
         {
+            if (GUILayout.Button("＋ 選択行の下に追加"))
+            {
+                // 選択している行の直後（+1の位置）に新しいセリフを挿入する
+                targetData.storys.Insert(selectedIndex + 1, new Story());
+                selectedIndex++;
+            }
             if (GUILayout.Button("－ 削除"))
             {
                 targetData.storys.RemoveAt(selectedIndex);
@@ -98,6 +105,35 @@ public class StoryDataEditorWindow : EditorWindow
             }
         }
         EditorGUILayout.EndHorizontal();
+
+        // 選択中のセリフを上下に入れ替える並べ替えボタン群
+        if (selectedIndex >= 0 && selectedIndex < targetData.storys.Count)
+        {
+            EditorGUILayout.BeginHorizontal();
+            // 先頭の行より下にある場合のみ上に移動可能
+            if (selectedIndex > 0)
+            {
+                if (GUILayout.Button("▲ 上に移動"))
+                {
+                    Story temp = targetData.storys[selectedIndex];
+                    targetData.storys.RemoveAt(selectedIndex);
+                    targetData.storys.Insert(selectedIndex - 1, temp);
+                    selectedIndex--;
+                }
+            }
+            // 末尾の行より上にある場合のみ下に移動可能
+            if (selectedIndex < targetData.storys.Count - 1)
+            {
+                if (GUILayout.Button("▼ 下に移動"))
+                {
+                    Story temp = targetData.storys[selectedIndex];
+                    targetData.storys.RemoveAt(selectedIndex);
+                    targetData.storys.Insert(selectedIndex + 1, temp);
+                    selectedIndex++;
+                }
+            }
+            EditorGUILayout.EndHorizontal();
+        }
         EditorGUILayout.Space();
 
         //左側にリスト一覧を描画
