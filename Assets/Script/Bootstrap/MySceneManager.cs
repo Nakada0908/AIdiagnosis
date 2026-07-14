@@ -47,12 +47,22 @@ public class MySceneManager : MonoBehaviour
             return;
         }
 
+        if(SceneManager.GetSceneByName(firstSceneName).isLoaded)
+        {
+            return;
+        }
+
         StartCoroutine(InitializeRoutine(firstSceneName));
     }
 
     public void ChangeScene(string sceneName)
     {
         if (isLoading)
+        {
+            return;
+        }
+
+        if (SceneManager.GetSceneByName(sceneName).isLoaded)
         {
             return;
         }

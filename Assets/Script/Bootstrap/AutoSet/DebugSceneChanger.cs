@@ -11,7 +11,7 @@ public class DebugSceneChanger : MonoBehaviour
         //Bootstrapシーンが読み込まれていなければ加算ロードする
         const string bootstrapScene = "Bootstrap";
 
-        if (!SceneManager.GetSceneByName(bootstrapScene).isLoaded)
+        if (!SceneManager.GetSceneByName(bootstrapScene).isLoaded && SceneManager.GetActiveScene().name != bootstrapScene)
         {
             SceneManager.LoadScene(bootstrapScene, LoadSceneMode.Additive);
         }
