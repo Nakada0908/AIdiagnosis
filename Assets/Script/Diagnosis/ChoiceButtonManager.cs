@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,6 +20,8 @@ public class ChoiceButtonManager : MonoBehaviour
     public End end2 { get; private set; }
     private bool isEnd1Choice = false;
 
+    private Action compCollback;
+
     private void Awake()
     {
         if(Instance != null)
@@ -38,11 +41,13 @@ public class ChoiceButtonManager : MonoBehaviour
         }
     }
 
-    public void ONChoiceButton(Diagnosis diagnosis)
+    public void ONChoiceButton(Diagnosis diagnosis, Action onComplete)
     {
         finishChoice = false;
         diagnosisElement = diagnosis;
         timer = 0f;
+
+        compCollback = onComplete;
 
         for (int i = 0; i < buttons.Length; i++)
         {
@@ -63,9 +68,11 @@ public class ChoiceButtonManager : MonoBehaviour
         }
     }
 
-    public void ONEndingButton(Diagnosis diagnosis)
+    public void ONEndingButton(Diagnosis diagnosis, Action onComplete)
     {
         finishChoice = false;
+
+        compCollback = onComplete;
 
         for (int i = 0; i < endingButtons.Length; i++)
         {
@@ -97,6 +104,7 @@ public class ChoiceButtonManager : MonoBehaviour
 
         DiagnosisSave.Instance.SaveChoiceToText(diagnosisElement);
         finishChoice = true;
+        compCollback?.Invoke();
     }
 
     public void End1_Happy()
@@ -105,6 +113,7 @@ public class ChoiceButtonManager : MonoBehaviour
         isEnd1Choice = true;
         end1 = End.Happy;
         finishChoice = true;
+        compCollback?.Invoke();
     }
     public void End1_Bad()
     {
@@ -112,6 +121,7 @@ public class ChoiceButtonManager : MonoBehaviour
         isEnd1Choice = true;
         end1 = End.Bad;
         finishChoice = true;
+        compCollback?.Invoke();
     }
     public void End1_MerryBad()
     {
@@ -119,6 +129,7 @@ public class ChoiceButtonManager : MonoBehaviour
         isEnd1Choice = true;
         end1 = End.MerryBad;
         finishChoice = true;
+        compCollback?.Invoke();
     }
     
     public void End2_douzyou()
@@ -127,6 +138,7 @@ public class ChoiceButtonManager : MonoBehaviour
         end2 = End.douzyou;
         JudgeEnding.Instance.SaveEnding(end1, end2);
         finishChoice = true;
+        compCollback?.Invoke();
     }
     public void End2_nodouzyou()
     {
@@ -134,6 +146,7 @@ public class ChoiceButtonManager : MonoBehaviour
         end2 = End.nodouzyou;
         JudgeEnding.Instance.SaveEnding(end1, end2);
         finishChoice = true;
+        compCollback?.Invoke();
     }
     public void End2_hannhann()
     {
@@ -141,6 +154,7 @@ public class ChoiceButtonManager : MonoBehaviour
         end2 = End.hannhann;
         JudgeEnding.Instance.SaveEnding(end1, end2);
         finishChoice = true;
+        compCollback?.Invoke();
     }
     #endregion
 }

@@ -33,35 +33,13 @@ public class StoryManager : MonoBehaviour
 
     private void Update()
     {
-        switch (cs)
+        if(input.NovelControls.NextText.WasPressedThisFrame())
         {
-            case CurrentState.Story:
-                if (finishText && input.NovelControls.NextText.WasPressedThisFrame())
-                {
-                    finishText = false;
-                    NextText();
-                }
-                break;
-            case CurrentState.Choice:
-                if (ChoiceButtonManager.Instance.finishChoice)
-                {
-                    ChoiceButtonManager.Instance.OFFChoiceButton();
-                    NextText();
-                }
-                break;
-            case CurrentState.Writing:
-                if (WritingManager.Instance.finishWriting)
-                {
-                    NextText();
-                }
-                break;
-            case CurrentState.End:
-                if(ChoiceButtonManager.Instance.finishChoice)
-                {
-                    ChoiceButtonManager.Instance.OFFEndingButton();
-                    NextText();
-                }
-                break;
+            if (cs == CurrentState.Story && finishText)
+            {
+                finishText = false;
+                NextText();
+            }
         }
     }
 
@@ -111,22 +89,40 @@ public class StoryManager : MonoBehaviour
                 break;
             case StoryType.Choice:
                 cs = CurrentState.Choice;
-                ChoiceButtonManager.Instance.ONChoiceButton(storyElement.diagnosis);
+                ChoiceButtonManager.Instance.ONChoiceButton(storyElement.diagnosis,OnChoiceComplete);
                 break;
             case StoryType.Writing:
                 cs = CurrentState.Writing;
                 //ストーリーテキストを質問としてセットしておく
                 storyElement.diagnosis.question1 = storyElement.storyText;
-                WritingManager.Instance.ONInputField(storyElement.diagnosis);
+                WritingManager.Instance.ONInputField(storyElement.diagnosis,OnWritingComplete);
                 break;
             case StoryType.JudgeEnding:
                 cs = CurrentState.End;
-                ChoiceButtonManager.Instance.ONEndingButton(storyElement.diagnosis);
+                ChoiceButtonManager.Instance.ONEndingButton(storyElement.diagnosis,OnEndingComplete);
                 break;
             case StoryType.None:
                 break;
         }
     }
+
+    private void OnChoiceComplete()
+    {
+        ChoiceButtonManager.Instance.OFFChoiceButton();
+        NextText();
+    }
+
+    private void OnWritingComplete()
+    {
+        NextText();
+    }
+
+    private void OnEndingComplete()
+    {
+        ChoiceButtonManager.Instance.OFFEndingButton();
+        NextText();
+    }
+
     private void ChangeStoryElent()
     {
         storyIndex = 0;

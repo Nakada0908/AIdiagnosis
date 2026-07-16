@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class WritingManager : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class WritingManager : MonoBehaviour
     float timer = 0f;
 
     public bool finishWriting { get; private set; }
+
+    private Action compCollback;
 
     private void Awake()
     {
@@ -32,13 +35,15 @@ public class WritingManager : MonoBehaviour
         }
     }
 
-    public void ONInputField(Diagnosis currentData)
+    public void ONInputField(Diagnosis currentData, Action onComplete)
     {
         InputManager.Instance.SwitchMode(InputMode.UI);
         finishWriting = false;
 
         diagnosisElement = currentData;
         timer = 0f;
+
+        compCollback = onComplete;
 
         answerInputField.gameObject.SetActive(true);
         finishButton.gameObject.SetActive(true);
@@ -63,5 +68,6 @@ public class WritingManager : MonoBehaviour
         DiagnosisSave.Instance.SaveChoiceToText(diagnosisElement);
         OFFInputField();
         finishWriting = true;
+        compCollback?.Invoke();
     }
 }

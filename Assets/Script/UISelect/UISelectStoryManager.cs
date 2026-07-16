@@ -106,17 +106,17 @@ public class UISelectStoryManager : MonoBehaviour
                 break;
             case StoryType.Choice:
                 cs = CurrentState.Choice;
-                ChoiceButtonManager.Instance.ONChoiceButton(storyElement.diagnosis);
+                //ChoiceButtonManager.Instance.ONChoiceButton(storyElement.diagnosis, OnChoiceComplete);
                 break;
             case StoryType.Writing:
                 cs = CurrentState.Writing;
                 //ストーリーテキストを質問としてセットしておく
                 storyElement.diagnosis.question1 = storyElement.storyText;
-                WritingManager.Instance.ONInputField(storyElement.diagnosis);
+                //WritingManager.Instance.ONInputField(storyElement.diagnosis, OnWritingComplete);
                 break;
             case StoryType.JudgeEnding:
                 cs = CurrentState.End;
-                ChoiceButtonManager.Instance.ONEndingButton(storyElement.diagnosis);
+                //ChoiceButtonManager.Instance.ONEndingButton(storyElement.diagnosis, OnEndingComplete);
                 break;
             case StoryType.None:
                 break;
