@@ -104,6 +104,7 @@ public class ChoiceButtonManager : MonoBehaviour
 
         DiagnosisSave.Instance.SaveChoiceToText(diagnosisElement);
         finishChoice = true;
+        OFFChoiceButton();
         compCollback?.Invoke();
     }
 
@@ -113,6 +114,7 @@ public class ChoiceButtonManager : MonoBehaviour
         isEnd1Choice = true;
         end1 = End.Happy;
         finishChoice = true;
+        OFFEndingButton();
         compCollback?.Invoke();
     }
     public void End1_Bad()
@@ -121,6 +123,7 @@ public class ChoiceButtonManager : MonoBehaviour
         isEnd1Choice = true;
         end1 = End.Bad;
         finishChoice = true;
+        OFFEndingButton();
         compCollback?.Invoke();
     }
     public void End1_MerryBad()
@@ -129,6 +132,7 @@ public class ChoiceButtonManager : MonoBehaviour
         isEnd1Choice = true;
         end1 = End.MerryBad;
         finishChoice = true;
+        OFFEndingButton();
         compCollback?.Invoke();
     }
     
@@ -138,6 +142,7 @@ public class ChoiceButtonManager : MonoBehaviour
         end2 = End.douzyou;
         JudgeEnding.Instance.SaveEnding(end1, end2);
         finishChoice = true;
+        OFFEndingButton();
         compCollback?.Invoke();
     }
     public void End2_nodouzyou()
@@ -146,6 +151,7 @@ public class ChoiceButtonManager : MonoBehaviour
         end2 = End.nodouzyou;
         JudgeEnding.Instance.SaveEnding(end1, end2);
         finishChoice = true;
+        OFFEndingButton();
         compCollback?.Invoke();
     }
     public void End2_hannhann()
@@ -154,6 +160,7 @@ public class ChoiceButtonManager : MonoBehaviour
         end2 = End.hannhann;
         JudgeEnding.Instance.SaveEnding(end1, end2);
         finishChoice = true;
+        OFFEndingButton();
         compCollback?.Invoke();
     }
     #endregion

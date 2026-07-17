@@ -12,11 +12,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Title.unity
     guid: 002024431bc6bbe4ebbbf9b853ed8696
   - enabled: 1
-    path: Assets/Scenes/Old/StartNovel.unity
-    guid: ec6ba60d826963144be2b14d3a8b0da7
-  - enabled: 1
     path: Assets/Scenes/Novel.unity
     guid: 5bd867ae42b28344e84c7293fc642016
+  - enabled: 1
+    path: Assets/Scenes/UISelect1.unity
+    guid: 16435b55ce9c09d4c9756629cb475914
   - enabled: 1
     path: Assets/Scenes/EndBefore.unity
     guid: a147557f89135e1468cc144c34ac8f6e

@@ -56,7 +56,9 @@ public class StoryManager : MonoBehaviour
         }
         else
         {
-            MySceneManager.Instance.ChangeScene("UISelect1");
+            //EndBefore,UISelect1
+            //ここ何かしらのif文で制御しないと事故りそう
+            MySceneManager.Instance.ChangeScene("EndBefore");
         }
     }
 
@@ -89,37 +91,25 @@ public class StoryManager : MonoBehaviour
                 break;
             case StoryType.Choice:
                 cs = CurrentState.Choice;
-                ChoiceButtonManager.Instance.ONChoiceButton(storyElement.diagnosis,OnChoiceComplete);
+                ChoiceButtonManager.Instance.ONChoiceButton(storyElement.diagnosis, OnComplete);
                 break;
             case StoryType.Writing:
                 cs = CurrentState.Writing;
                 //ストーリーテキストを質問としてセットしておく
                 storyElement.diagnosis.question1 = storyElement.storyText;
-                WritingManager.Instance.ONInputField(storyElement.diagnosis,OnWritingComplete);
+                WritingManager.Instance.ONInputField(storyElement.diagnosis, OnComplete);
                 break;
             case StoryType.JudgeEnding:
                 cs = CurrentState.End;
-                ChoiceButtonManager.Instance.ONEndingButton(storyElement.diagnosis,OnEndingComplete);
+                ChoiceButtonManager.Instance.ONEndingButton(storyElement.diagnosis, OnComplete);
                 break;
             case StoryType.None:
                 break;
         }
     }
 
-    private void OnChoiceComplete()
+    private void OnComplete()
     {
-        ChoiceButtonManager.Instance.OFFChoiceButton();
-        NextText();
-    }
-
-    private void OnWritingComplete()
-    {
-        NextText();
-    }
-
-    private void OnEndingComplete()
-    {
-        ChoiceButtonManager.Instance.OFFEndingButton();
         NextText();
     }
 
