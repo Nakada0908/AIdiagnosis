@@ -5,7 +5,7 @@ public class UISelectStoryManager : MonoBehaviour
     public static UISelectStoryManager Instance;
 
     [SerializeField] private StoryData[] storyData;
-    private int dataIndex = 0;
+    private int selectDataIndex = 0;
     private int storyIndex = 0;
     private bool finishText = false;
 
@@ -15,72 +15,65 @@ public class UISelectStoryManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance != null)
+        if(Instance != null)
         {
             Destroy(gameObject);
             return;
         }
 
         Instance = this;
+    }
 
+    private void Start()
+    {
         input = InputManager.Instance.input;
+
+        if (storyData[selectDataIndex].bgmClip != null)
+        {
+            SoundManager.Instance.PlayBGM(storyData[selectDataIndex].bgmClip);
+        }
+
+        PlayCurrentText();
     }
 
     private void Update()
     {
-        switch (cs)
+        if (input.NovelControls.NextText.WasPressedThisFrame())
         {
-            case CurrentState.Story:
-                if (finishText && input.NovelControls.NextText.WasPressedThisFrame())
-                {
-                    finishText = false;
-                    NextText();
-                }
-                break;
-            case CurrentState.Choice:
-                if (ChoiceButtonManager.Instance.finishChoice)
-                {
-                    ChoiceButtonManager.Instance.OFFChoiceButton();
-                    NextText();
-                }
-                break;
-            case CurrentState.Writing:
-                if (WritingManager.Instance.finishWriting)
-                {
-                    NextText();
-                }
-                break;
-            case CurrentState.End:
-                if (ChoiceButtonManager.Instance.finishChoice)
-                {
-                    ChoiceButtonManager.Instance.OFFEndingButton();
-                    NextText();
-                }
-                break;
+            if (cs == CurrentState.Story && finishText)
+            {
+                finishText = false;
+                NextText();
+            }
         }
     }
 
     private void NextText()
     {
         ++storyIndex;
-        if (storyIndex < storyData[dataIndex].storys.Count)
+        if (storyIndex < storyData[selectDataIndex].storys.Count)
         {
             PlayCurrentText();
         }
-        else if (dataIndex < storyData.Length - 1)
+        else if (selectDataIndex < storyData.Length - 1)
         {
-            ChangeStoryElent();
+            //ボタン選択待機のため待ち
         }
         else
         {
-            MySceneManager.Instance.ChangeScene("UISelect1");
+            //今回ここではシーン移動はするけど、UIを全部選択しきったのかの確認をする
+            //もうちょい上の方で確認したほうがいいかな？
+
+            //EndBefore,UISelect1
+            //ここ何かしらのif文で制御しないと事故りそう
+            MySceneManager.Instance.ChangeScene("EndBefore");
         }
     }
 
     private void PlayCurrentText()
     {
         cs = CurrentState.Story;
-        var storyElement = storyData[dataIndex].storys[storyIndex];
+        var storyElement = storyData[selectDataIndex].storys[storyIndex];
 
         if (storyElement.voiceClip != null)
         {
@@ -96,7 +89,7 @@ public class UISelectStoryManager : MonoBehaviour
 
     private void OnStoryComplete()
     {
-        var storyElement = storyData[dataIndex].storys[storyIndex];
+        var storyElement = storyData[selectDataIndex].storys[storyIndex];
 
         switch (storyElement.storyType)
         {
@@ -106,30 +99,34 @@ public class UISelectStoryManager : MonoBehaviour
                 break;
             case StoryType.Choice:
                 cs = CurrentState.Choice;
-                //ChoiceButtonManager.Instance.ONChoiceButton(storyElement.diagnosis, OnChoiceComplete);
+                ChoiceButtonManager.Instance.ONChoiceButton(storyElement.diagnosis, OnComplete);
                 break;
             case StoryType.Writing:
                 cs = CurrentState.Writing;
                 //ストーリーテキストを質問としてセットしておく
                 storyElement.diagnosis.question1 = storyElement.storyText;
-                //WritingManager.Instance.ONInputField(storyElement.diagnosis, OnWritingComplete);
+                WritingManager.Instance.ONInputField(storyElement.diagnosis, OnComplete);
                 break;
             case StoryType.JudgeEnding:
-                cs = CurrentState.End;
-                //ChoiceButtonManager.Instance.ONEndingButton(storyElement.diagnosis, OnEndingComplete);
                 break;
             case StoryType.None:
                 break;
         }
     }
-    private void ChangeStoryElent()
+
+    private void OnComplete()
+    {
+        NextText();
+    }
+
+    public void ChangeSelectStoryElent(int index)
     {
         storyIndex = 0;
-        dataIndex++;
+        selectDataIndex = index;
 
-        if (storyData[dataIndex].bgmClip != null)
+        if (storyData[selectDataIndex].bgmClip != null)
         {
-            SoundManager.Instance.PlayBGM(storyData[dataIndex].bgmClip);
+            SoundManager.Instance.PlayBGM(storyData[selectDataIndex].bgmClip);
         }
 
         PlayCurrentText();

@@ -2085,7 +2085,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u30B9\u30C6\u30FC\u30B8\uFF11\u306E\u30CE\u30D9\u30EB\u30D1\u30FC\u30C8\u3060\u3088"
+  m_text: "\u30B9\u30C6\u30FC\u30B84\u306EUI\u9078\u629E\u5F0F\u306E\u30B7\u30FC\u30F3\u3060\u3088"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9c4d22597b39eb243b3fef1b23016b70, type: 2}
   m_sharedMaterial: {fileID: -6710231647387607583, guid: 9c4d22597b39eb243b3fef1b23016b70, type: 2}
@@ -2373,7 +2373,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2143880336}
-  - component: {fileID: 2143880335}
+  - component: {fileID: 2143880337}
   m_Layer: 0
   m_Name: StoryManeger
   m_TagString: Untagged
@@ -2381,21 +2381,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2143880335
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2143880334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f22a2c3b78f1504f8e7c154a570fb15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  storyData:
-  - {fileID: 11400000, guid: c23091b1210b6304a9223dc19b909578, type: 2}
-  - {fileID: 11400000, guid: a5496f7674e26484ea348bfedb4ceaee, type: 2}
 --- !u!4 &2143880336
 Transform:
   m_ObjectHideFlags: 0
@@ -2411,6 +2396,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 112364739}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2143880337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2143880334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7b61fe9c98c4cf45be6c091db69501b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  storyData: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
