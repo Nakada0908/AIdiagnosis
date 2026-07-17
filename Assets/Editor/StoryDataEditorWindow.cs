@@ -9,6 +9,9 @@ public class StoryDataEditorWindow : EditorWindow
     private Vector2 leftScrollPos;
     private Vector2 rightScrollPos;
 
+    private float leftPaneWidth = 250f;
+    private bool isResizing = false;
+
     //UIのテキスト枠に合わせた制限値の定義
     private const int maxLines = 3;
     private const int maxCharsPerLine = 34;
@@ -65,6 +68,7 @@ public class StoryDataEditorWindow : EditorWindow
         EditorGUILayout.BeginHorizontal();
 
         DrawLeftPane();
+        DrawResizer();
         DrawRightPane();
 
         EditorGUILayout.EndHorizontal();
@@ -76,15 +80,44 @@ public class StoryDataEditorWindow : EditorWindow
         }
     }
 
+    private void DrawResizer()
+    {
+        Rect resizerRect = GUILayoutUtility.GetRect(1f, EditorGUIUtility.currentViewWidth, GUILayout.ExpandHeight(true));
+
+        Rect hitRect = resizerRect;
+        hitRect.xMin -= 4f;
+        hitRect.xMax += 4f;
+
+        EditorGUIUtility.AddCursorRect(hitRect, MouseCursor.ResizeHorizontal);
+
+        if (Event.current.type == EventType.MouseDown && hitRect.Contains(Event.current.mousePosition))
+        {
+            isResizing = true;
+        }
+
+        if (isResizing)
+        {
+            leftPaneWidth = Event.current.mousePosition.x;
+            leftPaneWidth = Mathf.Clamp(leftPaneWidth, 100f, position.width - 200f);
+            Repaint();
+        }
+
+        if (Event.current.type == EventType.MouseUp)
+        {
+            isResizing = false;
+        }
+
+        EditorGUI.DrawRect(resizerRect, Color.gray);
+    }
+
     private void DrawLeftPane()
     {
-        EditorGUILayout.BeginVertical("box", GUILayout.Width(250), GUILayout.ExpandHeight(true));
+        EditorGUILayout.BeginVertical("box", GUILayout.Width(leftPaneWidth), GUILayout.ExpandHeight(true));
 
         targetData.bgmClip = (AudioClip)EditorGUILayout.ObjectField("全体のBGM", targetData.bgmClip, typeof(AudioClip), false);
         EditorGUILayout.Space();
 
         // リスト操作用のボタン群（末尾追加、選択行の下に追加、削除）
-        EditorGUILayout.BeginHorizontal();
         if (GUILayout.Button("＋ 末尾に追加"))
         {
             targetData.storys.Add(new Story());
@@ -92,7 +125,8 @@ public class StoryDataEditorWindow : EditorWindow
         }
         if (selectedIndex >= 0 && selectedIndex < targetData.storys.Count)
         {
-            if (GUILayout.Button("＋ 選択行の下に追加"))
+            EditorGUILayout.BeginHorizontal();
+            if (GUILayout.Button("＋ 下に挿入"))
             {
                 // 選択している行の直後（+1の位置）に新しいセリフを挿入する
                 targetData.storys.Insert(selectedIndex + 1, new Story());
@@ -103,8 +137,8 @@ public class StoryDataEditorWindow : EditorWindow
                 targetData.storys.RemoveAt(selectedIndex);
                 selectedIndex = Mathf.Clamp(selectedIndex - 1, -1, targetData.storys.Count - 1);
             }
+            EditorGUILayout.EndHorizontal();
         }
-        EditorGUILayout.EndHorizontal();
 
         // 選択中のセリフを上下に入れ替える並べ替えボタン群
         if (selectedIndex >= 0 && selectedIndex < targetData.storys.Count)
@@ -113,7 +147,7 @@ public class StoryDataEditorWindow : EditorWindow
             // 先頭の行より下にある場合のみ上に移動可能
             if (selectedIndex > 0)
             {
-                if (GUILayout.Button("▲ 上に移動"))
+                if (GUILayout.Button("▲ 上へ"))
                 {
                     Story temp = targetData.storys[selectedIndex];
                     targetData.storys.RemoveAt(selectedIndex);
@@ -124,7 +158,7 @@ public class StoryDataEditorWindow : EditorWindow
             // 末尾の行より上にある場合のみ下に移動可能
             if (selectedIndex < targetData.storys.Count - 1)
             {
-                if (GUILayout.Button("▼ 下に移動"))
+                if (GUILayout.Button("▼ 下へ"))
                 {
                     Story temp = targetData.storys[selectedIndex];
                     targetData.storys.RemoveAt(selectedIndex);
@@ -137,7 +171,8 @@ public class StoryDataEditorWindow : EditorWindow
         EditorGUILayout.Space();
 
         //左側にリスト一覧を描画
-        leftScrollPos = EditorGUILayout.BeginScrollView(leftScrollPos);
+        float scrollHeight = Mathf.Max(100f, position.height - 160f);
+        leftScrollPos = EditorGUILayout.BeginScrollView(leftScrollPos, GUILayout.Height(scrollHeight));
         for (int i = 0; i < targetData.storys.Count; i++)
         {
             Story story = targetData.storys[i];
@@ -175,7 +210,10 @@ public class StoryDataEditorWindow : EditorWindow
         }
 
         Story story = targetData.storys[selectedIndex];
-        rightScrollPos = EditorGUILayout.BeginScrollView(rightScrollPos);
+        //削除:rightScrollPos = EditorGUILayout.BeginScrollView(rightScrollPos);
+        //変更:ウィンドウ全体の高さから余白を引いた高さを明示的に指定して確実にスクロールバーを発生させる
+        float scrollHeight = Mathf.Max(100f, position.height - 40f);
+        rightScrollPos = EditorGUILayout.BeginScrollView(rightScrollPos, GUILayout.Height(scrollHeight));
 
         EditorGUILayout.LabelField($"セリフ編集 [Index: {selectedIndex}]", EditorStyles.boldLabel);
         EditorGUILayout.Space();
