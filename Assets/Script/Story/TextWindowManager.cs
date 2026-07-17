@@ -34,6 +34,11 @@ public class TextWindowManager : MonoBehaviour
             nowCoroutine = null;
         }
 
+        background.gameObject.SetActive(true);
+        characterImage.gameObject.SetActive(true);
+        storyText.gameObject.SetActive(true);
+        characterName.gameObject.SetActive(true);
+
         background.sprite = story.backGround;
         characterImage.sprite = story.characterImage;
         characterName.text = story.characterName;
@@ -51,5 +56,13 @@ public class TextWindowManager : MonoBehaviour
         }
         nowCoroutine = null;
         onComplete?.Invoke();
+    }
+
+    public void HideText()
+    {
+        background.gameObject.SetActive(false);
+        characterImage.gameObject.SetActive(false);
+        characterName.gameObject.SetActive(false);
+        storyText.gameObject.SetActive(false);
     }
 }
