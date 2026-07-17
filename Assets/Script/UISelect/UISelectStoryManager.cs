@@ -43,13 +43,15 @@ public class UISelectStoryManager : MonoBehaviour
 
     private void Update()
     {
-        if (input.NovelControls.NextText.WasPressedThisFrame())
+        if (cs != CurrentState.Story)
         {
-            if (cs == CurrentState.Story && finishText)
-            {
-                finishText = false;
-                NextText();
-            }
+            return;
+        }
+
+        if (finishText && input.NovelControls.NextText.WasPressedThisFrame())
+        {
+            finishText = false;
+            NextText();
         }
     }
 
@@ -69,6 +71,7 @@ public class UISelectStoryManager : MonoBehaviour
         else
         {
             TextWindowManager.Instance.HideText();
+            cs = CurrentState.WaitSelect;
         }
     }
 

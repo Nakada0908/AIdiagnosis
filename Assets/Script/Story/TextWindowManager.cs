@@ -13,6 +13,8 @@ public class TextWindowManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI storyText;
     [SerializeField] private TextMeshProUGUI characterName;
 
+    [SerializeField] private Canvas novelCanvas;
+
     private Coroutine nowCoroutine;
 
     private void Awake()
@@ -34,10 +36,7 @@ public class TextWindowManager : MonoBehaviour
             nowCoroutine = null;
         }
 
-        background.gameObject.SetActive(true);
-        characterImage.gameObject.SetActive(true);
-        storyText.gameObject.SetActive(true);
-        characterName.gameObject.SetActive(true);
+        novelCanvas.gameObject.SetActive(true);
 
         background.sprite = story.backGround;
         characterImage.sprite = story.characterImage;
@@ -60,9 +59,6 @@ public class TextWindowManager : MonoBehaviour
 
     public void HideText()
     {
-        background.gameObject.SetActive(false);
-        characterImage.gameObject.SetActive(false);
-        characterName.gameObject.SetActive(false);
-        storyText.gameObject.SetActive(false);
+        novelCanvas.gameObject.SetActive(false);
     }
 }

@@ -5,6 +5,7 @@ enum CurrentState
     Story,
     Choice,
     Writing,
+    WaitSelect,
     End
 }
 
@@ -33,13 +34,15 @@ public class StoryManager : MonoBehaviour
 
     private void Update()
     {
-        if(input.NovelControls.NextText.WasPressedThisFrame())
+        if (cs != CurrentState.Story)
         {
-            if (cs == CurrentState.Story && finishText)
-            {
-                finishText = false;
-                NextText();
-            }
+            return;
+        }
+
+        if (finishText && input.NovelControls.NextText.WasPressedThisFrame())
+        {
+            finishText = false;
+            NextText();
         }
     }
 
@@ -89,26 +92,21 @@ public class StoryManager : MonoBehaviour
                 break;
             case StoryType.Choice:
                 cs = CurrentState.Choice;
-                ChoiceButtonManager.Instance.ONChoiceButton(storyElement.diagnosis, OnComplete);
+                ChoiceButtonManager.Instance.ONChoiceButton(storyElement.diagnosis, NextText);
                 break;
             case StoryType.Writing:
                 cs = CurrentState.Writing;
                 //ストーリーテキストを質問としてセットしておく
                 storyElement.diagnosis.question1 = storyElement.storyText;
-                WritingManager.Instance.ONInputField(storyElement.diagnosis, OnComplete);
+                WritingManager.Instance.ONInputField(storyElement.diagnosis, NextText);
                 break;
             case StoryType.JudgeEnding:
                 cs = CurrentState.End;
-                ChoiceButtonManager.Instance.ONEndingButton(storyElement.diagnosis, OnComplete);
+                ChoiceButtonManager.Instance.ONEndingButton(storyElement.diagnosis, NextText);
                 break;
             case StoryType.None:
                 break;
         }
-    }
-
-    private void OnComplete()
-    {
-        NextText();
     }
 
     private void ChangeStoryElent()

@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 439c97aae18e6ee49963d1146376a3e8, type: 3}
-  m_Name: null
+  m_Name: UI_Start
   m_EditorClassIdentifier: 
   storys:
   - backGround: {fileID: 0}
     characterImage: {fileID: 0}
-    storyText: "\u3044\u306A\u3044\u3088\uFF5E"
-    characterName: null
+    storyText: "\u3066\u3059\u3068"
+    characterName: "\u7814\u7A76\u54E1"
     storyType: 0
     diagnosis:
       question1: 
