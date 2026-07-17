@@ -31,7 +31,8 @@ public class UISelectStoryManager : MonoBehaviour
     {
         input = InputManager.Instance.input;
 
-        selectMaxCnt = storyData.Length;
+        //‰‚ß‚Ì“±“ü•ªŒ¸‚ç‚·
+        selectMaxCnt = storyData.Length - 1;
 
         if (storyData[selectDataIndex].bgmClip != null)
         {
@@ -59,7 +60,8 @@ public class UISelectStoryManager : MonoBehaviour
     {
         if (selectCnt >= selectMaxCnt)
         {
-            MySceneManager.Instance.ChangeScene("UISelect2");
+            //UISelect2,EndBefore
+            MySceneManager.Instance.ChangeScene("EndBefore");
             return;
         }
 
