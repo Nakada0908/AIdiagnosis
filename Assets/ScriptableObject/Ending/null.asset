@@ -27,4 +27,74 @@ MonoBehaviour:
       answerTime: 0
     voiceClip: {fileID: 0}
     seClip: {fileID: 0}
+  - backGround: {fileID: 0}
+    characterImage: {fileID: 0}
+    storyText: 
+    characterName: 
+    storyType: 0
+    diagnosis:
+      question1: 
+      question2: 
+      question3: 
+      choiceNum: 0
+      answer: 
+      answerTime: 0
+    voiceClip: {fileID: 0}
+    seClip: {fileID: 0}
+  - backGround: {fileID: 0}
+    characterImage: {fileID: 0}
+    storyText: 
+    characterName: 
+    storyType: 0
+    diagnosis:
+      question1: 
+      question2: 
+      question3: 
+      choiceNum: 0
+      answer: 
+      answerTime: 0
+    voiceClip: {fileID: 0}
+    seClip: {fileID: 0}
+  - backGround: {fileID: 0}
+    characterImage: {fileID: 0}
+    storyText: 
+    characterName: 
+    storyType: 0
+    diagnosis:
+      question1: 
+      question2: 
+      question3: 
+      choiceNum: 0
+      answer: 
+      answerTime: 0
+    voiceClip: {fileID: 0}
+    seClip: {fileID: 0}
+  - backGround: {fileID: 0}
+    characterImage: {fileID: 0}
+    storyText: 
+    characterName: 
+    storyType: 0
+    diagnosis:
+      question1: 
+      question2: 
+      question3: 
+      choiceNum: 0
+      answer: 
+      answerTime: 0
+    voiceClip: {fileID: 0}
+    seClip: {fileID: 0}
+  - backGround: {fileID: 0}
+    characterImage: {fileID: 0}
+    storyText: 
+    characterName: 
+    storyType: 0
+    diagnosis:
+      question1: 
+      question2: 
+      question3: 
+      choiceNum: 0
+      answer: 
+      answerTime: 0
+    voiceClip: {fileID: 0}
+    seClip: {fileID: 0}
   bgmClip: {fileID: 0}

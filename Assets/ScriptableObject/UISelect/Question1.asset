@@ -38,7 +38,7 @@ MonoBehaviour:
       question3: "\u307E\u3050\u308D\u307F\u304B\u3093"
       choiceNum: 3
       answer: 
-      answerTime: 1.5507276
+      answerTime: 0.78373337
     voiceClip: {fileID: 0}
     seClip: {fileID: 0}
   - backGround: {fileID: 0}

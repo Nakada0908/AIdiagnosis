@@ -36,7 +36,10 @@ public class TextWindowManager : MonoBehaviour
             nowCoroutine = null;
         }
 
-        novelCanvas.gameObject.SetActive(true);
+        if (novelCanvas != null)
+        {
+            novelCanvas.gameObject.SetActive(true);
+        }
 
         background.sprite = story.backGround;
         characterImage.sprite = story.characterImage;
@@ -59,6 +62,9 @@ public class TextWindowManager : MonoBehaviour
 
     public void HideText()
     {
-        novelCanvas.gameObject.SetActive(false);
+        if (novelCanvas != null)
+        {
+            novelCanvas.gameObject.SetActive(false);
+        }
     }
 }
