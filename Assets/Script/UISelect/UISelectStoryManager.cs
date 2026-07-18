@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class UISelectStoryManager : MonoBehaviour
 {
@@ -81,15 +82,6 @@ public class UISelectStoryManager : MonoBehaviour
     {
         cs = CurrentState.Story;
         var storyElement = storyData[selectDataIndex].storys[storyIndex];
-
-        if (storyElement.voiceClip != null)
-        {
-            SoundManager.Instance.PlayVoice(storyElement.voiceClip);
-        }
-        if (storyElement.seClip != null)
-        {
-            SoundManager.Instance.PlaySE(storyElement.seClip);
-        }
 
         TextWindowManager.Instance.ShowText(storyElement, OnStoryComplete);
     }

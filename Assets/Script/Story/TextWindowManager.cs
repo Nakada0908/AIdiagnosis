@@ -35,15 +35,33 @@ public class TextWindowManager : MonoBehaviour
             StopCoroutine(nowCoroutine);
             nowCoroutine = null;
         }
-
         if (novelCanvas != null)
         {
             novelCanvas.gameObject.SetActive(true);
         }
 
-        background.sprite = story.backGround;
-        characterImage.sprite = story.characterImage;
-        characterName.text = story.characterName;
+        if (story.backGround != null)
+        {
+            background.sprite = story.backGround;
+        }
+        if (story.characterImage != null)
+        {
+            characterImage.sprite = story.characterImage;
+        }
+        if (!string.IsNullOrEmpty(story.characterName))
+        {
+            characterName.text = story.characterName;
+        }
+
+        if (story.voiceClip != null)
+        {
+            SoundManager.Instance.PlayVoice(story.voiceClip);
+        }
+        if (story.seClip != null)
+        {
+            SoundManager.Instance.PlaySE(story.seClip);
+        }
+
         storyText.text = "";
 
         nowCoroutine = StartCoroutine(TypeSentence(story.storyText, onComplete));

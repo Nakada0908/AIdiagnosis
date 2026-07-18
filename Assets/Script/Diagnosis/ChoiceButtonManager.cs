@@ -7,8 +7,9 @@ public class ChoiceButtonManager : MonoBehaviour
 {
     public static ChoiceButtonManager Instance;
 
-    public Button[] buttons;
-    public Button[] endingButtons;
+    [SerializeField] private Button[] buttons;
+    [SerializeField] private Button[] endingButtons;
+    [SerializeField] private Button dataCopyButton;
 
     private Diagnosis diagnosisElement;
 
@@ -31,6 +32,11 @@ public class ChoiceButtonManager : MonoBehaviour
         }
 
         Instance = this;
+    }
+
+    private void Start()
+    {
+        dataCopyButton.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -94,6 +100,10 @@ public class ChoiceButtonManager : MonoBehaviour
         }
     }
 
+    public void  ShowDataCopyButton()
+    {
+        dataCopyButton.gameObject.SetActive(true);
+    }
 
     #region É{É^ÉìÇ…ÇÊÇÈèàóù
     public void OnChoiceButtonNum(int choiceNumber)

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 enum CurrentState
 {
@@ -39,6 +40,11 @@ public class StoryManager : MonoBehaviour
             return;
         }
 
+        if (UIHoverBlocker.IsHovering)
+        {
+            return;
+        }
+
         if (finishText && input.NovelControls.NextText.WasPressedThisFrame())
         {
             finishText = false;
@@ -67,15 +73,6 @@ public class StoryManager : MonoBehaviour
     {
         cs = CurrentState.Story;
         var storyElement = storyData[dataIndex].storys[storyIndex];
-
-        if(storyElement.voiceClip != null)
-        {
-            SoundManager.Instance.PlayVoice(storyElement.voiceClip);
-        }
-        if(storyElement.seClip != null)
-        {
-            SoundManager.Instance.PlaySE(storyElement.seClip);
-        }
 
         TextWindowManager.Instance.ShowText(storyElement, OnStoryComplete);
     }

@@ -29,64 +29,8 @@ MonoBehaviour:
     seClip: {fileID: 0}
   - backGround: {fileID: 0}
     characterImage: {fileID: 0}
-    storyText: 
-    characterName: 
-    storyType: 0
-    diagnosis:
-      question1: 
-      question2: 
-      question3: 
-      choiceNum: 0
-      answer: 
-      answerTime: 0
-    voiceClip: {fileID: 0}
-    seClip: {fileID: 0}
-  - backGround: {fileID: 0}
-    characterImage: {fileID: 0}
-    storyText: 
-    characterName: 
-    storyType: 0
-    diagnosis:
-      question1: 
-      question2: 
-      question3: 
-      choiceNum: 0
-      answer: 
-      answerTime: 0
-    voiceClip: {fileID: 0}
-    seClip: {fileID: 0}
-  - backGround: {fileID: 0}
-    characterImage: {fileID: 0}
-    storyText: 
-    characterName: 
-    storyType: 0
-    diagnosis:
-      question1: 
-      question2: 
-      question3: 
-      choiceNum: 0
-      answer: 
-      answerTime: 0
-    voiceClip: {fileID: 0}
-    seClip: {fileID: 0}
-  - backGround: {fileID: 0}
-    characterImage: {fileID: 0}
-    storyText: 
-    characterName: 
-    storyType: 0
-    diagnosis:
-      question1: 
-      question2: 
-      question3: 
-      choiceNum: 0
-      answer: 
-      answerTime: 0
-    voiceClip: {fileID: 0}
-    seClip: {fileID: 0}
-  - backGround: {fileID: 0}
-    characterImage: {fileID: 0}
-    storyText: 
-    characterName: 
+    storyText: "\u30B7\u30FC\u30F3\u3082\u3069\u3061\u3083\u3046\u3088\uFF5E"
+    characterName: "\u306C\uFF4C\uFF4C"
     storyType: 0
     diagnosis:
       question1: 
