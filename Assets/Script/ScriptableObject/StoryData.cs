@@ -22,13 +22,14 @@ public class StoryData : ScriptableObject
 {
     public List<Story> storys= new List<Story>();
     public AudioClip bgmClip;
+    public bool useBackground = false;
 }
 
 [System.Serializable]
 public class Story
 {
     public Sprite backGround;
-    public Sprite characterImage;
+    public Sprite[] characterImage;
     [TextArea]
     public string storyText;
     public string characterName;
@@ -44,8 +45,7 @@ public class Diagnosis
     public string question1;
     public string question2;
     public string question3;
-    //以下は今後ハイドインスペクターしようか[HideInInspector]
-    public int choiceNum;
-    public string answer;
-    public float answerTime;
+    [HideInInspector] public int choiceNum;
+    [HideInInspector] public string answer;
+    [HideInInspector] public float answerTime;
 }

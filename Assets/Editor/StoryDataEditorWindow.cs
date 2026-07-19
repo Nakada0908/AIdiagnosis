@@ -210,15 +210,22 @@ public class StoryDataEditorWindow : EditorWindow
         }
 
         Story story = targetData.storys[selectedIndex];
-        //削除:rightScrollPos = EditorGUILayout.BeginScrollView(rightScrollPos);
-        //変更:ウィンドウ全体の高さから余白を引いた高さを明示的に指定して確実にスクロールバーを発生させる
         float scrollHeight = Mathf.Max(100f, position.height - 40f);
         rightScrollPos = EditorGUILayout.BeginScrollView(rightScrollPos, GUILayout.Height(scrollHeight));
 
         EditorGUILayout.LabelField($"セリフ編集 [Index: {selectedIndex}]", EditorStyles.boldLabel);
         EditorGUILayout.Space();
 
-        story.characterName = EditorGUILayout.TextField("キャラクター名", story.characterName);
+        //追加:isHideを立ち絵だけでなくキャラクター名も非表示にするフラグとして設定
+        story.isHide = EditorGUILayout.Toggle("立ち絵・名前を非表示 (isHide)", story.isHide);
+
+        //変更:isHideがfalse（表示する）の場合のみキャラクター名の入力枠を表示する
+        if (!story.isHide)
+        {
+            story.characterName = EditorGUILayout.TextField("キャラクター名", story.characterName);
+        }
+        //削除:story.characterName = EditorGUILayout.TextField("キャラクター名", story.characterName);
+
         story.storyType = (StoryType)EditorGUILayout.EnumPopup("進行タイプ (StoryType)", story.storyType);
 
         EditorGUILayout.Space();
@@ -250,8 +257,34 @@ public class StoryDataEditorWindow : EditorWindow
 
         EditorGUILayout.Space();
         EditorGUILayout.LabelField("画像・サウンド設定", EditorStyles.boldLabel);
-        story.characterImage = (Sprite)EditorGUILayout.ObjectField("キャラクター画像", story.characterImage, typeof(Sprite), false);
+        //削除:story.characterImage = (Sprite)EditorGUILayout.ObjectField("キャラクター画像", story.characterImage, typeof(Sprite), false);
         story.backGround = (Sprite)EditorGUILayout.ObjectField("背景画像", story.backGround, typeof(Sprite), false);
+
+        //変更:isHideがfalseの場合のみ、段階的に出現する立ち絵設定枠を描画する
+        if (!story.isHide)
+        {
+            if (story.characterImage == null || story.characterImage.Length != 3)
+            {
+                System.Array.Resize(ref story.characterImage, 3);
+            }
+
+            EditorGUILayout.BeginVertical("helpbox");
+            EditorGUILayout.LabelField("キャラクター立ち絵 (空欄なら前の状態を維持)", EditorStyles.boldLabel);
+
+            //追加:1つ目を常に表示し、設定されたら次を表示する段階的レイアウト
+            story.characterImage[0] = (Sprite)EditorGUILayout.ObjectField(" [1人目] 画像", story.characterImage[0], typeof(Sprite), false);
+
+            if (story.characterImage[0] != null)
+            {
+                story.characterImage[1] = (Sprite)EditorGUILayout.ObjectField(" [2人目] 画像", story.characterImage[1], typeof(Sprite), false);
+            }
+            if (story.characterImage[0] != null && story.characterImage[1] != null)
+            {
+                story.characterImage[2] = (Sprite)EditorGUILayout.ObjectField(" [3人目] 画像", story.characterImage[2], typeof(Sprite), false);
+            }
+            EditorGUILayout.EndVertical();
+        }
+
         story.voiceClip = (AudioClip)EditorGUILayout.ObjectField("ボイス (Voice)", story.voiceClip, typeof(AudioClip), false);
         story.seClip = (AudioClip)EditorGUILayout.ObjectField("効果音 (SE)", story.seClip, typeof(AudioClip), false);
 

@@ -74,6 +74,7 @@ public class StoryManager : MonoBehaviour
         cs = CurrentState.Story;
         var storyElement = storyData[dataIndex].storys[storyIndex];
 
+        TextWindowManager.Instance.SetBuckground(storyData[dataIndex]);
         TextWindowManager.Instance.ShowText(storyElement, OnStoryComplete);
     }
 

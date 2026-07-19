@@ -15,6 +15,10 @@ public class TextWindowManager : MonoBehaviour
 
     [SerializeField] private Canvas novelCanvas;
 
+    [SerializeField] private Vector2 posOne;
+    [SerializeField] private Vector2[] posTwo;
+    [SerializeField] private Vector2[] posThree;
+
     private Coroutine nowCoroutine;
 
     private void Awake()
@@ -26,6 +30,18 @@ public class TextWindowManager : MonoBehaviour
         }
 
         Instance = this;
+    }
+
+    public void SetBuckground(StoryData sd)
+    {
+        if(sd.useBackground)
+        {
+            background.enabled = true; 
+        }
+        else
+        {
+            background.enabled = false;
+        }
     }
 
     public void ShowText(Story story ,Action onComplete)
@@ -44,15 +60,12 @@ public class TextWindowManager : MonoBehaviour
         {
             background.sprite = story.backGround;
         }
-        if (story.characterImage != null)
-        {
-            characterImage.sprite = story.characterImage;
-        }
         if (!string.IsNullOrEmpty(story.characterName))
         {
             characterName.text = story.characterName;
         }
-
+        //自動化されたキャラクタ表示
+        SetCharacter();
         if (story.voiceClip != null)
         {
             SoundManager.Instance.PlayVoice(story.voiceClip);
@@ -65,6 +78,11 @@ public class TextWindowManager : MonoBehaviour
         storyText.text = "";
 
         nowCoroutine = StartCoroutine(TypeSentence(story.storyText, onComplete));
+    }
+
+    private void SetCharacter()
+    {
+
     }
 
     private IEnumerator TypeSentence(string text, Action onComplete)
