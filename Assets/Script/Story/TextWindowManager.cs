@@ -9,15 +9,15 @@ public class TextWindowManager : MonoBehaviour
     public static TextWindowManager Instance;
 
     [SerializeField] private Image background;
-    [SerializeField] private Image characterImage;
+    [SerializeField] private Image[] characterImage;
     [SerializeField] private TextMeshProUGUI storyText;
     [SerializeField] private TextMeshProUGUI characterName;
 
     [SerializeField] private Canvas novelCanvas;
 
-    [SerializeField] private Vector2 posOne;
-    [SerializeField] private Vector2[] posTwo;
-    [SerializeField] private Vector2[] posThree;
+    [SerializeField] private Image posOne;
+    [SerializeField] private Image[] posTwo;
+    [SerializeField] private Image[] posThree;
 
     private Coroutine nowCoroutine;
 
@@ -37,6 +37,10 @@ public class TextWindowManager : MonoBehaviour
         if(sd.useBackground)
         {
             background.enabled = true; 
+            if(sd.backGround!=null)
+            {
+                background.sprite= sd.backGround;
+            }
         }
         else
         {
@@ -56,16 +60,11 @@ public class TextWindowManager : MonoBehaviour
             novelCanvas.gameObject.SetActive(true);
         }
 
-        if (story.backGround != null)
-        {
-            background.sprite = story.backGround;
-        }
         if (!string.IsNullOrEmpty(story.characterName))
         {
             characterName.text = story.characterName;
         }
-        //自動化されたキャラクタ表示
-        SetCharacter();
+        SetCharacter(story);
         if (story.voiceClip != null)
         {
             SoundManager.Instance.PlayVoice(story.voiceClip);
@@ -80,9 +79,66 @@ public class TextWindowManager : MonoBehaviour
         nowCoroutine = StartCoroutine(TypeSentence(story.storyText, onComplete));
     }
 
-    private void SetCharacter()
+    private void SetCharacter(Story s)
     {
+        ResetImages();
 
+        int charaCnt = 0;
+        for (int i = 0; i < s.characterImage.Length; i++)
+        {
+            if (s.characterImage[i] != null)
+            {
+                charaCnt++;
+            }
+        }
+
+        switch (charaCnt)
+        {
+            case 0:
+                break;
+            case 1:
+                posOne.enabled = true;
+                posOne.sprite=s.characterImage[0];
+                break;
+            case 2:
+                for(int i=0; i < 2; ++i)
+                {
+                    posTwo[i].enabled = true;
+                    posTwo[i].sprite = s.characterImage[i];
+                }
+                break;
+            case 3:
+                for (int i = 0; i <3; ++i)
+                {
+                    posThree[i].enabled = true;
+                    posThree[i].sprite = s.characterImage[i];
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void ResetImages()
+    {
+        if (posOne != null)
+        {
+            posOne.enabled = false;
+        }
+        for (int i = 0; i < posTwo.Length; i++)
+        {
+            if (posTwo[i] != null)
+            {
+                posTwo[i].enabled = false;
+            }
+        }
+        for (int i = 0; i < posThree.Length; i++)
+        {
+            if (posThree[i] != null)
+            {
+                posThree[i].enabled = false;
+            }
+        }
     }
 
     private IEnumerator TypeSentence(string text, Action onComplete)

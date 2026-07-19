@@ -21,14 +21,14 @@ public enum StoryType
 public class StoryData : ScriptableObject
 {
     public List<Story> storys= new List<Story>();
-    public AudioClip bgmClip;
     public bool useBackground = false;
+    public Sprite backGround;
+    public AudioClip bgmClip;
 }
 
 [System.Serializable]
 public class Story
 {
-    public Sprite backGround;
     public Sprite[] characterImage;
     [TextArea]
     public string storyText;
