@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Question1
   m_EditorClassIdentifier: 
   storys:
-  - backGround: {fileID: 0}
-    characterImage: {fileID: 0}
+  - characterImage:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
     storyText: "\u30C6\u30B9\u30C8\u3060\u3046\u304A\u304A\u304A\u304A\u304A\u304A\u304A\u304A"
     characterName: "\u6751\u4EBA"
     storyType: 0
@@ -27,8 +29,10 @@ MonoBehaviour:
       answerTime: 0
     voiceClip: {fileID: 0}
     seClip: {fileID: 0}
-  - backGround: {fileID: 0}
-    characterImage: {fileID: 0}
+  - characterImage:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
     storyText: "\u306F\u3044\u8CEA\u554F\u306D"
     characterName: "\u6751\u4EBA"
     storyType: 1
@@ -41,8 +45,10 @@ MonoBehaviour:
       answerTime: 0.78373337
     voiceClip: {fileID: 0}
     seClip: {fileID: 0}
-  - backGround: {fileID: 0}
-    characterImage: {fileID: 0}
+  - characterImage:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
     storyText: "\u304A\u3057\u307E\u3044"
     characterName: "\u6751\u4EBA"
     storyType: 0
@@ -55,4 +61,6 @@ MonoBehaviour:
       answerTime: 0
     voiceClip: {fileID: 0}
     seClip: {fileID: 0}
+  useBackground: 0
+  backGround: {fileID: 0}
   bgmClip: {fileID: 0}

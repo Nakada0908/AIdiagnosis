@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: UI_Start
   m_EditorClassIdentifier: 
   storys:
-  - backGround: {fileID: 0}
-    characterImage: {fileID: 0}
+  - characterImage:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
     storyText: "\u3066\u3059\u3068"
     characterName: "\u7814\u7A76\u54E1"
     storyType: 0
@@ -27,4 +29,22 @@ MonoBehaviour:
       answerTime: 0
     voiceClip: {fileID: 0}
     seClip: {fileID: 0}
+  - characterImage:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    storyText: "\u2026\u2026\u3048\u3001\u8868\u793A\u3055\u308C\u3066\u308B\u3088\u306D\uFF1F"
+    characterName: "\u4E0D\u5B89"
+    storyType: 0
+    diagnosis:
+      question1: 
+      question2: 
+      question3: 
+      choiceNum: 0
+      answer: 
+      answerTime: 0
+    voiceClip: {fileID: 0}
+    seClip: {fileID: 0}
+  useBackground: 0
+  backGround: {fileID: 0}
   bgmClip: {fileID: 0}

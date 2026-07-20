@@ -10,8 +10,15 @@ enum CurrentState
     End
 }
 
+public enum StoryMode
+{
+    Normal,
+    UISelect
+}
+
 public class StoryManager : MonoBehaviour
 {
+    [SerializeField] private StoryMode storyMode = StoryMode.Normal;
     [SerializeField] private StoryData[] storyData;
     private int dataIndex = 0;
     private int storyIndex = 0;
@@ -21,9 +28,21 @@ public class StoryManager : MonoBehaviour
 
     private CurrentState cs;
 
+    private int selectCnt = 0;
+    private int selectMaxCnt;
+
+    [SerializeField] private string nextSceneName;
+    private string overrideSceneName = null;
+
     private void Start()
     {
         input = InputManager.Instance.input;
+
+        if (storyMode == StoryMode.UISelect)
+        {
+            //‰‚ß‚Ì“±“ü•ªŒ¸‚ç‚·
+            selectMaxCnt = storyData.Length - 1;
+        }
 
         if (storyData[dataIndex].bgmClip != null)
         {
@@ -59,13 +78,23 @@ public class StoryManager : MonoBehaviour
         {
             PlayCurrentText();
         }
+        else if (storyMode == StoryMode.UISelect)
+        {
+            if (selectCnt >= selectMaxCnt)
+            {
+                ChangeToNextScene();
+                return;
+            }
+            TextWindowManager.Instance.HideText();
+            cs = CurrentState.WaitSelect;
+        }
         else if(dataIndex < storyData.Length - 1)
         {
             ChangeStoryElent();
         }
         else
         {
-            MySceneManager.Instance.ChangeScene("UISelect1");
+            ChangeToNextScene();
         }
     }
 
@@ -118,5 +147,30 @@ public class StoryManager : MonoBehaviour
         }
 
         PlayCurrentText();
+    }
+
+    public void ChangeSelectStoryElent(int index)
+    {
+        storyIndex = 0;
+        dataIndex = index;
+        selectCnt++;
+
+        if (storyData[dataIndex].bgmClip != null)
+        {
+            SoundManager.Instance.PlayBGM(storyData[dataIndex].bgmClip);
+        }
+
+        PlayCurrentText();
+    }
+
+    private void ChangeToNextScene()
+    {
+        string targetScene = !string.IsNullOrEmpty(overrideSceneName) ? overrideSceneName : nextSceneName;
+        MySceneManager.Instance.ChangeScene(targetScene);
+    }
+
+    public void SetEndSceneName(string name)
+    {
+        overrideSceneName = name;
     }
 }

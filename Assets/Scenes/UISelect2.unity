@@ -786,7 +786,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7cfce2866f62074439ebb1a21c19ca2e, type: 2}
   - {fileID: 11400000, guid: 032ab4f51328d6046b686e9abccad297, type: 2}
   - {fileID: 11400000, guid: 36f54a10789c9c94c956523c2d5a00c4, type: 2}
-  nextSceneName: UISelect2
+  nextSceneName: EndBefore
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

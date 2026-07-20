@@ -1,11 +1,32 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class UIButtonSelect : MonoBehaviour
 {
+    private StoryManager storyManager;
+
+    private void Start()
+    {
+        storyManager = GetComponent<StoryManager>();
+    }
+
     public void ChoiceUIButton(int index)
     {
-        UISelectStoryManager.Instance.ChangeSelectStoryElent(index);
-        //半透明にして無効化する処理の追加
+        if (storyManager != null)
+        {
+            storyManager.ChangeSelectStoryElent(index);
+        }
+
+        GameObject clickedObj = EventSystem.current.currentSelectedGameObject;
+        if (clickedObj != null)
+        {
+            Button targetButton = clickedObj.GetComponent<Button>();
+            if (targetButton != null)
+            {
+                targetButton.interactable = false;
+            }
+            EventSystem.current.SetSelectedGameObject(null);
+        }
     }
 }

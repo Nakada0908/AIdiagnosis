@@ -151,6 +151,7 @@ MonoBehaviour:
   storyData:
   - {fileID: 11400000, guid: c23091b1210b6304a9223dc19b909578, type: 2}
   - {fileID: 11400000, guid: a5496f7674e26484ea348bfedb4ceaee, type: 2}
+  nextSceneName: UISelect1
 --- !u!4 &2143880336
 Transform:
   m_ObjectHideFlags: 0

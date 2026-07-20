@@ -173,6 +173,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2143880336}
   - component: {fileID: 2143880335}
+  - component: {fileID: 2143880337}
   m_Layer: 0
   m_Name: StoryManeger
   m_TagString: Untagged
@@ -192,8 +193,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f22a2c3b78f1504f8e7c154a570fb15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  storyMode: 0
   storyData:
   - {fileID: 11400000, guid: dfa63f5b703e155499c5756077965802, type: 2}
+  nextSceneName: 
 --- !u!4 &2143880336
 Transform:
   m_ObjectHideFlags: 0
@@ -209,6 +212,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2143880337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2143880334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 428677e38a985a34292437801de1d569, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

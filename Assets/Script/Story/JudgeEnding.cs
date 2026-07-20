@@ -24,9 +24,9 @@ public class JudgeEnding : MonoBehaviour
         Debug.Log("エンディング決定: " + endSceneName);
     }
 
-    public void ChangeToEndingScene()
+    public string GetEndSceneName()
     {
-        MySceneManager.Instance.ChangeScene(endSceneName);
+        return endSceneName;
     }
 
     private string EndNameJudge(End end1, End end2)

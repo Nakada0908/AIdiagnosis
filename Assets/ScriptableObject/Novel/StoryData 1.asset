@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: StoryData 1
   m_EditorClassIdentifier: 
   storys:
-  - backGround: {fileID: 0}
-    characterImage: {fileID: 0}
+  - characterImage:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
     storyText: "\u65E9\u901F\u3060\u304C\u8CEA\u554F\u3060\n\u541B\u304C\u601D\u3046\u4E00\u756A\u884C\u304D\u305F\u304F\u306A\u3044\u5834\u6240\u3001\u4E16\u754C\u306F\u3069\u3053\u304B\u306A\uFF1F"
     characterName: "\u7814\u7A76\u54E1"
     storyType: 2
@@ -23,13 +25,15 @@ MonoBehaviour:
       question2: 
       question3: 
       choiceNum: 0
-      answer: "\u3042\u3057\u3093\n\u30A2\u30B5\u30B7\u30F3\n\u6BBA\u3059\nasnaoAA\n\n\n"
-      answerTime: 20.382969
+      answer: 
+      answerTime: 11.902328
     voiceClip: {fileID: 0}
     seClip: {fileID: 0}
-  - backGround: {fileID: 0}
-    characterImage: {fileID: 0}
-    storyText: "\u3044\u3063\u305F\u3093Null"
+  - characterImage:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    storyText: "\u6B21\u306E\u30B7\u30FC\u30F3\u306B\u884C\u304F\u3088"
     characterName: "\u7814\u7A76\u54E1"
     storyType: 0
     diagnosis:
@@ -41,4 +45,6 @@ MonoBehaviour:
       answerTime: 0
     voiceClip: {fileID: 0}
     seClip: {fileID: 0}
+  useBackground: 1
+  backGround: {fileID: 0}
   bgmClip: {fileID: 0}
