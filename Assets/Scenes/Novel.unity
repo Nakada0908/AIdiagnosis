@@ -150,8 +150,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storyMode: 0
   storyData:
-  - {fileID: 11400000, guid: a5496f7674e26484ea348bfedb4ceaee, type: 2}
-  - {fileID: 11400000, guid: a5496f7674e26484ea348bfedb4ceaee, type: 2}
+  - {fileID: 11400000, guid: c23091b1210b6304a9223dc19b909578, type: 2}
+  - {fileID: 11400000, guid: e7c4d6b3fc33e0341aaf78395b4fe740, type: 2}
+  - {fileID: 11400000, guid: 1674965ff33d05e47ab1dd8857b7bb47, type: 2}
+  - {fileID: 11400000, guid: a40aa9cfc87755e4ca0758db6ac6968e, type: 2}
   uiBlockImage: {fileID: 0}
   nextSceneName: UISelect1
 --- !u!4 &2143880336

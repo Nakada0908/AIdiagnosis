@@ -42,9 +42,9 @@ public class Story
 [System.Serializable]
 public class Diagnosis
 {
-    public string question1;
-    public string question2;
-    public string question3;
+    [TextArea] public string question1;
+    [TextArea] public string question2;
+    [TextArea] public string question3;
     [HideInInspector] public int choiceNum;
     [HideInInspector] public string answer;
     [HideInInspector] public float answerTime;

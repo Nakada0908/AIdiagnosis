@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 439c97aae18e6ee49963d1146376a3e8, type: 3}
-  m_Name: StoryData
+  m_Name: NovelStart
   m_EditorClassIdentifier: 
   storys:
   - characterImage:

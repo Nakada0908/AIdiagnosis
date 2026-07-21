@@ -29,38 +29,6 @@ MonoBehaviour:
       answerTime: 0
     voiceClip: {fileID: 0}
     seClip: {fileID: 0}
-  - characterImage:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    storyText: "\u306F\u3044\u8CEA\u554F\u306D"
-    characterName: "\u6751\u4EBA"
-    storyType: 1
-    diagnosis:
-      question1: "\u3069\u3089\u713C\u304D"
-      question2: "\u9905"
-      question3: "\u307E\u3050\u308D\u307F\u304B\u3093"
-      choiceNum: 3
-      answer: 
-      answerTime: 0.78373337
-    voiceClip: {fileID: 0}
-    seClip: {fileID: 0}
-  - characterImage:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    storyText: "\u304A\u3057\u307E\u3044"
-    characterName: "\u6751\u4EBA"
-    storyType: 0
-    diagnosis:
-      question1: 
-      question2: 
-      question3: 
-      choiceNum: 0
-      answer: 
-      answerTime: 0
-    voiceClip: {fileID: 0}
-    seClip: {fileID: 0}
   useBackground: 0
   backGround: {fileID: 0}
   bgmClip: {fileID: 0}
