@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -30,6 +31,7 @@ public class StoryManager : MonoBehaviour
 
     private int selectCnt = 0;
     private int selectMaxCnt;
+    [SerializeField] private GameObject uiBlockImage;
 
     [SerializeField] private string nextSceneName;
     private string overrideSceneName = null;
@@ -86,6 +88,10 @@ public class StoryManager : MonoBehaviour
                 return;
             }
             TextWindowManager.Instance.HideText();
+            if (uiBlockImage != null)
+            {
+                uiBlockImage.SetActive(false);
+            }
             cs = CurrentState.WaitSelect;
         }
         else if(dataIndex < storyData.Length - 1)
@@ -101,6 +107,12 @@ public class StoryManager : MonoBehaviour
     private void PlayCurrentText()
     {
         cs = CurrentState.Story;
+
+        if (uiBlockImage != null)
+        {
+            uiBlockImage.SetActive(true);
+        }
+
         var storyElement = storyData[dataIndex].storys[storyIndex];
 
         TextWindowManager.Instance.SetBuckground(storyData[dataIndex]);

@@ -11,6 +11,7 @@ public class StoryDataEditorWindow : EditorWindow
 
     private float leftPaneWidth = 250f;
     private bool isResizing = false;
+    private bool inheritCharacterName = true;
 
     private const int maxLines = 3;
     private const int maxCharsPerLine = 34;
@@ -108,7 +109,6 @@ public class StoryDataEditorWindow : EditorWindow
         EditorGUILayout.BeginVertical("box", GUILayout.Width(leftPaneWidth), GUILayout.ExpandHeight(true));
 
         targetData.bgmClip = (AudioClip)EditorGUILayout.ObjectField("全体のBGM", targetData.bgmClip, typeof(AudioClip), false);
-        //追加:左ペインにストーリーデータ全体の背景使用フラグと画像設定フィールドを配置する
         targetData.useBackground = EditorGUILayout.Toggle("背景を使用する", targetData.useBackground);
         if (targetData.useBackground)
         {
@@ -116,10 +116,17 @@ public class StoryDataEditorWindow : EditorWindow
         }
 
         EditorGUILayout.Space();
+        inheritCharacterName = EditorGUILayout.ToggleLeft("キャラ名を引き継ぐ", inheritCharacterName);
+        EditorGUILayout.Space();
 
         if (GUILayout.Button("＋ 末尾に追加"))
         {
-            targetData.storys.Add(new Story());
+            Story newStory = new Story();
+            if (inheritCharacterName && targetData.storys.Count > 0)
+            {
+                newStory.characterName = targetData.storys[targetData.storys.Count - 1].characterName;
+            }
+            targetData.storys.Add(newStory);
             selectedIndex = targetData.storys.Count - 1;
         }
         if (selectedIndex >= 0 && selectedIndex < targetData.storys.Count)
@@ -127,7 +134,12 @@ public class StoryDataEditorWindow : EditorWindow
             EditorGUILayout.BeginHorizontal();
             if (GUILayout.Button("＋ 下に挿入"))
             {
-                targetData.storys.Insert(selectedIndex + 1, new Story());
+                Story newStory = new Story();
+                if (inheritCharacterName)
+                {
+                    newStory.characterName = targetData.storys[selectedIndex].characterName;
+                }
+                targetData.storys.Insert(selectedIndex + 1, newStory);
                 selectedIndex++;
             }
             if (GUILayout.Button("－ 削除"))
@@ -238,7 +250,6 @@ public class StoryDataEditorWindow : EditorWindow
 
         EditorGUILayout.Space();
         EditorGUILayout.LabelField("画像・サウンド設定", EditorStyles.boldLabel);
-        //削除:story.backGround = (Sprite)EditorGUILayout.ObjectField("背景画像 (空欄なら維持)", story.backGround, typeof(Sprite), false);
 
         if (story.characterImage == null || story.characterImage.Length != 3)
         {

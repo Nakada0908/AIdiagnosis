@@ -195,7 +195,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storyMode: 0
   storyData:
-  - {fileID: 11400000, guid: dfa63f5b703e155499c5756077965802, type: 2}
+  - {fileID: 11400000, guid: e78207fe065937942a46fbba2c85c03a, type: 2}
+  uiBlockImage: {fileID: 0}
   nextSceneName: 
 --- !u!4 &2143880336
 Transform:

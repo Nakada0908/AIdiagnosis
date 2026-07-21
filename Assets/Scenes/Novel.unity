@@ -148,9 +148,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f22a2c3b78f1504f8e7c154a570fb15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  storyMode: 0
   storyData:
-  - {fileID: 11400000, guid: c23091b1210b6304a9223dc19b909578, type: 2}
   - {fileID: 11400000, guid: a5496f7674e26484ea348bfedb4ceaee, type: 2}
+  - {fileID: 11400000, guid: a5496f7674e26484ea348bfedb4ceaee, type: 2}
+  uiBlockImage: {fileID: 0}
   nextSceneName: UISelect1
 --- !u!4 &2143880336
 Transform:
