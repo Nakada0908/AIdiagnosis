@@ -859,9 +859,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storyMode: 1
   storyData:
-  - {fileID: 11400000, guid: 7cfce2866f62074439ebb1a21c19ca2e, type: 2}
-  - {fileID: 11400000, guid: 032ab4f51328d6046b686e9abccad297, type: 2}
-  - {fileID: 11400000, guid: 36f54a10789c9c94c956523c2d5a00c4, type: 2}
+  - {fileID: 11400000, guid: 2ba6f33e070287e43885438760a3fbe6, type: 2}
+  - {fileID: 11400000, guid: 8237b69b3e5b958438825fab271b84a2, type: 2}
+  - {fileID: 11400000, guid: cbf282cf8d6dd0341bac00dff40e060d, type: 2}
+  - {fileID: 11400000, guid: 55dcb875a1f83ff4ea65a97d045e3aa4, type: 2}
+  - {fileID: 11400000, guid: 1c2bc44c778f8c943964da92b74286b1, type: 2}
+  - {fileID: 11400000, guid: 540e2b47698a7864cbd7a88e0ec1e343, type: 2}
+  - {fileID: 11400000, guid: 663fffee032d5c948930b64748639681, type: 2}
+  - {fileID: 11400000, guid: 537b3d1af5069f046bf97fc1e07f7811, type: 2}
+  - {fileID: 11400000, guid: 65f333c1efc3b6546b30ee64a06f5b12, type: 2}
+  - {fileID: 11400000, guid: 418a3b3268303af44ac304d05ee7e964, type: 2}
+  - {fileID: 11400000, guid: 7fcd7e980cd86854eafb94aae0803ece, type: 2}
   uiBlockImage: {fileID: 1638832346}
   nextSceneName: EndBefore
 --- !u!1660057539 &9223372036854775807
