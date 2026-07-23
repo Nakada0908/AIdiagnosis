@@ -468,8 +468,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Bootstrap\u3060\u3088"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0eb5ba0eebb601e44b495eb8d20e172f, type: 2}
-  m_sharedMaterial: {fileID: -6729150285623667648, guid: 0eb5ba0eebb601e44b495eb8d20e172f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9c4d22597b39eb243b3fef1b23016b70, type: 2}
+  m_sharedMaterial: {fileID: -6710231647387607583, guid: 9c4d22597b39eb243b3fef1b23016b70, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1974,8 +1974,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u30C7\u30FC\u30BF\u3092\u53D7\u3051\u53D6\u308B"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0eb5ba0eebb601e44b495eb8d20e172f, type: 2}
-  m_sharedMaterial: {fileID: -6729150285623667648, guid: 0eb5ba0eebb601e44b495eb8d20e172f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9c4d22597b39eb243b3fef1b23016b70, type: 2}
+  m_sharedMaterial: {fileID: -6710231647387607583, guid: 9c4d22597b39eb243b3fef1b23016b70, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2396,9 +2396,9 @@ RectTransform:
   - {fileID: 861608962}
   m_Father: {fileID: 1255461420}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -305, y: 500}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -305, y: -40}
   m_SizeDelta: {x: 500, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &987528680
@@ -3832,8 +3832,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u7814\u7A76\u8005"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0eb5ba0eebb601e44b495eb8d20e172f, type: 2}
-  m_sharedMaterial: {fileID: -6729150285623667648, guid: 0eb5ba0eebb601e44b495eb8d20e172f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9c4d22597b39eb243b3fef1b23016b70, type: 2}
+  m_sharedMaterial: {fileID: -6710231647387607583, guid: 9c4d22597b39eb243b3fef1b23016b70, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

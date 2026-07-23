@@ -64,6 +64,10 @@ public class TextWindowManager : MonoBehaviour
         {
             characterName.text = story.characterName;
         }
+        else
+        {
+            characterName.text = null;
+        }
         SetCharacter(story);
         if (story.voiceClip != null)
         {

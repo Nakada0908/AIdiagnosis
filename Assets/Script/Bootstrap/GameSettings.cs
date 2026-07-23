@@ -7,7 +7,7 @@ public class GameSettings : MonoBehaviour
     {
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 60;
-        Screen.SetResolution(1280, 720, FullScreenMode.Windowed);
+        Screen.SetResolution(1920,1080, FullScreenMode.FullScreenWindow);
         InputManager.Instance.SwitchMode(InputMode.Novel);
 
         //エディターでのテスト時はtitleを起動しないようにする

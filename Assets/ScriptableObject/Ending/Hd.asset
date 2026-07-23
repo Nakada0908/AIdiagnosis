@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 439c97aae18e6ee49963d1146376a3e8, type: 3}
+  m_Name: Hd
+  m_EditorClassIdentifier: 
+  storys:
+  - characterImage:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    storyText: "\u3042"
+    characterName: "\u7814\u7A76\u8005"
+    storyType: 0
+    diagnosis:
+      question1: 
+      question2: 
+      question3: 
+      choiceNum: 0
+      answer: 
+      answerTime: 0
+    voiceClip: {fileID: 0}
+    seClip: {fileID: 0}
+  useBackground: 1
+  backGround: {fileID: 0}
+  bgmClip: {fileID: 0}

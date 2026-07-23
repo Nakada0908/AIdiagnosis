@@ -23,6 +23,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EndBefore.unity
     guid: a147557f89135e1468cc144c34ac8f6e
+  - enabled: 1
+    path: Assets/Scenes/Ending/Ending_Hd.unity
+    guid: 8a94cdc49f0fa254ca01a015f4d51414
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
