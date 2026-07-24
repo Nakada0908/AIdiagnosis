@@ -1,0 +1,24 @@
+using UnityEngine;
+
+public class UnlockTrueEnd : MonoBehaviour
+{
+    public static UnlockTrueEnd Instance;
+
+    private int lookEndCnt = 0;
+
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+    }
+
+    public int GetlookEndCnt()
+    {
+        return lookEndCnt;
+    }
+}
