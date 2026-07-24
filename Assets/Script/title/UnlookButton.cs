@@ -12,7 +12,7 @@ public class UnlookButton : MonoBehaviour
     private void Start()
     {
         nowLookEnd = UnlockTrueEnd.Instance.GetlookEndCnt();
-        endingListButton.interactable = nowLookEnd > endingListUnlock;
-        trueendButton.interactable = nowLookEnd > trueendUnlock;
+        endingListButton.interactable = nowLookEnd >= endingListUnlock;
+        trueendButton.interactable = nowLookEnd >= trueendUnlock;
     }
 }
