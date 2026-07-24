@@ -17,6 +17,11 @@ public class UnlockTrueEnd : MonoBehaviour
         Instance = this;
     }
 
+    public void AddLookedEnd()
+    {
+        lookEndCnt++;
+    }
+
     public int GetlookEndCnt()
     {
         return lookEndCnt;

@@ -4,7 +4,6 @@ using UnityEngine.UI;
 public class OpenEndingsButton : MonoBehaviour
 {
     [SerializeField] private Canvas endingListCanvas;
-    private int cnt;
 
     private void Start()
     {

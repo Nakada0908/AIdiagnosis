@@ -8,4 +8,9 @@ public class NextScene : MonoBehaviour
     {
         MySceneManager.Instance.ChangeScene(nextSceneName);
     }
+
+    public void OnSelectEnding(string targetSceneName)
+    {
+        MySceneManager.Instance.ChangeScene(targetSceneName);
+    }
 }
