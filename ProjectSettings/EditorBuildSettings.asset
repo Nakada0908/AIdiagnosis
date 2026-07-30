@@ -50,6 +50,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Ending/Ending_Mn.unity
     guid: 2b7b7413806e9cb44aa654d7d94b9bf2
+  - enabled: 1
+    path: Assets/Scenes/TrueEnd.unity
+    guid: 80118ca137df2604cbf2e1b46b38e17b
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
