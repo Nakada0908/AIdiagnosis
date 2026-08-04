@@ -415,8 +415,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u82B1\u5B50\u3055\u3093"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0eb5ba0eebb601e44b495eb8d20e172f, type: 2}
-  m_sharedMaterial: {fileID: -6729150285623667648, guid: 0eb5ba0eebb601e44b495eb8d20e172f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 98f45a4dcf4c17443b6d04208092ead7, type: 2}
+  m_sharedMaterial: {fileID: 4382625291320655479, guid: 98f45a4dcf4c17443b6d04208092ead7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -654,8 +654,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u3042\u3042\u3042\u3042"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0eb5ba0eebb601e44b495eb8d20e172f, type: 2}
-  m_sharedMaterial: {fileID: -6729150285623667648, guid: 0eb5ba0eebb601e44b495eb8d20e172f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 98f45a4dcf4c17443b6d04208092ead7, type: 2}
+  m_sharedMaterial: {fileID: 4382625291320655479, guid: 98f45a4dcf4c17443b6d04208092ead7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -827,17 +827,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f22a2c3b78f1504f8e7c154a570fb15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  storyDatas:
-  - {fileID: 11400000, guid: 522a390dd6b4235429ce7600d187ea50, type: 2}
-  - {fileID: 11400000, guid: d98aa5af5387237468b4b93157470336, type: 2}
-  diagnosisDatas: []
-  background: {fileID: 2133554215}
-  characterImage: {fileID: 210142231}
-  storyText: {fileID: 2016241558}
-  characterName: {fileID: 1097221920}
-  storyIndex: 0
-  textIndex: 0
-  soundManeger: {fileID: 0}
+  storyMode: 0
+  storyData: []
+  uiBlockImage: {fileID: 0}
+  nextSceneName: 
 --- !u!4 &2143880336
 Transform:
   m_ObjectHideFlags: 0
