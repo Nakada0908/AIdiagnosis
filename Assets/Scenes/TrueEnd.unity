@@ -129,7 +129,6 @@ GameObject:
   m_Component:
   - component: {fileID: 502252095}
   - component: {fileID: 502252094}
-  - component: {fileID: 502252093}
   m_Layer: 0
   m_Name: StoryManeger
   m_TagString: Untagged
@@ -137,18 +136,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &502252093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 502252092}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 428677e38a985a34292437801de1d569, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &502252094
 MonoBehaviour:
   m_ObjectHideFlags: 0

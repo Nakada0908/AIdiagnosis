@@ -10,7 +10,7 @@ public class DataCopy : MonoBehaviour
     //ボタンが押された時
     public void CopyDiagnosisData()
     {
-        string diagnosisText = DiagnosisSave.Instance.GetFinalJsonData();
+        string diagnosisText = MakeDiagnosisText();
 
 #if UNITY_WEBGL && !UNITY_EDITOR
         //WebGLビルド実行時の処理
@@ -20,5 +20,17 @@ public class DataCopy : MonoBehaviour
 #endif
 
         Debug.Log("クリップボードにコピーしました:\n" + diagnosisText);
+    }
+
+    private string MakeDiagnosisText()
+    {
+        string filePath = "PromptText/";
+
+        string promptHeader = Resources.Load<TextAsset>(filePath + "PromptHeader").text;
+        string data = DiagnosisSave.Instance.GetFinalJsonData();
+        string promptFormat = Resources.Load<TextAsset>(filePath + "PromptFormat").text;
+
+        string makedata = promptHeader + "\n" + data + "\n" + promptFormat;
+        return makedata;
     }
 }

@@ -74,7 +74,7 @@ MonoBehaviour:
       question3: "\u3055\u3093\uFF5E"
       choiceNum: 2
       answer: 
-      answerTime: 0.302653
+      answerTime: 0.40152818
     voiceClip: {fileID: 0}
     seClip: {fileID: 0}
   - characterImage:
@@ -90,7 +90,7 @@ MonoBehaviour:
       question3: 
       choiceNum: 0
       answer: 
-      answerTime: 0.5491786
+      answerTime: 1.4853549
     voiceClip: {fileID: 0}
     seClip: {fileID: 0}
   useBackground: 0
