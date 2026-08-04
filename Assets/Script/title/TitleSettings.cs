@@ -11,5 +11,7 @@ public class TitleSettings : MonoBehaviour
         {
             SoundManager.Instance.PlayBGM(bgm);
         }
+
+        ChoiceButtonManager.Instance.OFFDataCopyButton();
     }
 }

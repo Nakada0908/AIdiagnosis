@@ -1,3 +1,8 @@
+//このコードは生成AIによって生成されました
+//ストーリーデータの編集をサポートするものです
+//ScriptableObjectであるStoryDataを対象に、セリフやキャラクター名、進行タイプ、
+//画像、サウンドなどをGUI上で編集できる専用エディタウィンドウを提供します
+
 using UnityEditor;
 using UnityEditor.Callbacks;
 using UnityEngine;

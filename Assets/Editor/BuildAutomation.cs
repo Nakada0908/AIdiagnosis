@@ -1,3 +1,6 @@
+//このコードは生成AIによって生成されました
+//ビルド自動化の為のスクリプトです
+
 using UnityEditor;
 using UnityEngine;
 

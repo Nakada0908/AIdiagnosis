@@ -105,6 +105,11 @@ public class ChoiceButtonManager : MonoBehaviour
         dataCopyButton.gameObject.SetActive(true);
     }
 
+    public void OFFDataCopyButton()
+    {
+        dataCopyButton.gameObject.SetActive(false);
+    }
+
     #region ƒ{ƒ^ƒ“‚É‚æ‚éˆ—
     public void OnChoiceButtonNum(int choiceNumber)
     {
