@@ -39,6 +39,11 @@ public class DiagnosisSave : MonoBehaviour
         currentData.records.Add(record);
     }
 
+    public void ClearData()
+    {
+        currentData.records.Clear();
+    }
+
     public string GetFinalJsonData()
     {
         return JsonUtility.ToJson(currentData);

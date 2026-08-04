@@ -13,5 +13,6 @@ public class TitleSettings : MonoBehaviour
         }
 
         ChoiceButtonManager.Instance.OFFDataCopyButton();
+        DiagnosisSave.Instance.ClearData();
     }
 }
