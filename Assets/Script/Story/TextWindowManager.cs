@@ -11,6 +11,7 @@ public class TextWindowManager : MonoBehaviour
     [SerializeField] private Image background;
     [SerializeField] private Image[] characterImage;
     [SerializeField] private TextMeshProUGUI storyText;
+    [SerializeField] private Image characterNameBG;
     [SerializeField] private TextMeshProUGUI characterName;
 
     [SerializeField] private Canvas novelCanvas;
@@ -19,7 +20,9 @@ public class TextWindowManager : MonoBehaviour
     [SerializeField] private Image[] posTwo;
     [SerializeField] private Image[] posThree;
 
+    private float textSpeed = 0.01f;
     private Coroutine nowCoroutine;
+    private bool isSkip;
 
     private void Awake()
     {
@@ -63,10 +66,12 @@ public class TextWindowManager : MonoBehaviour
         if (!string.IsNullOrEmpty(story.characterName))
         {
             characterName.text = story.characterName;
+            characterNameBG.enabled = true;
         }
         else
         {
             characterName.text = null;
+            characterNameBG.enabled = false;
         }
         SetCharacter(story);
         if (story.voiceClip != null)
@@ -79,6 +84,7 @@ public class TextWindowManager : MonoBehaviour
         }
 
         storyText.text = "";
+        isSkip = false;
 
         nowCoroutine = StartCoroutine(TypeSentence(story.storyText, onComplete));
     }
@@ -147,13 +153,27 @@ public class TextWindowManager : MonoBehaviour
 
     private IEnumerator TypeSentence(string text, Action onComplete)
     {
-        foreach (char letter in text.ToCharArray())
+        //TMPの機能で文字を一文字ずつ表示する
+        storyText.text = text;
+        storyText.maxVisibleCharacters = 0;
+        for(int i= 0; i < text.Length; i++)
         {
-            storyText.text += letter;
-            yield return new WaitForSeconds(0.01f);
+            if (isSkip)
+            {
+                break;
+            }
+            storyText.maxVisibleCharacters = i+1;
+            yield return new WaitForSeconds(textSpeed);
         }
+        //最後に全文表示にする
+        storyText.maxVisibleCharacters = text.Length;
         nowCoroutine = null;
         onComplete?.Invoke();
+    }
+
+    public void SkipText()
+    {
+        isSkip = true;
     }
 
     public void HideText()

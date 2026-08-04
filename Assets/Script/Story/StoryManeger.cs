@@ -66,10 +66,17 @@ public class StoryManager : MonoBehaviour
             return;
         }
 
-        if (finishText && input.NovelControls.NextText.WasPressedThisFrame())
+        if (input.NovelControls.NextText.WasPressedThisFrame())
         {
-            finishText = false;
-            NextText();
+            if (finishText)
+            {
+                finishText = false;
+                NextText();
+            }
+            else
+            {
+                TextWindowManager.Instance.SkipText();
+            }
         }
     }
 

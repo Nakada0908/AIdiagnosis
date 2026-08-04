@@ -468,8 +468,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Bootstrap\u3060\u3088"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9c4d22597b39eb243b3fef1b23016b70, type: 2}
-  m_sharedMaterial: {fileID: -6710231647387607583, guid: 9c4d22597b39eb243b3fef1b23016b70, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0eb5ba0eebb601e44b495eb8d20e172f, type: 2}
+  m_sharedMaterial: {fileID: -6729150285623667648, guid: 0eb5ba0eebb601e44b495eb8d20e172f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -870,6 +870,7 @@ MonoBehaviour:
   background: {fileID: 2049410660}
   characterImage: []
   storyText: {fileID: 292622356}
+  characterNameBG: {fileID: 1755848773}
   characterName: {fileID: 1563048804}
   novelCanvas: {fileID: 1255461419}
   posOne: {fileID: 1875110429}
@@ -1974,8 +1975,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u30C7\u30FC\u30BF\u3092\u53D7\u3051\u53D6\u308B"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9c4d22597b39eb243b3fef1b23016b70, type: 2}
-  m_sharedMaterial: {fileID: -6710231647387607583, guid: 9c4d22597b39eb243b3fef1b23016b70, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0eb5ba0eebb601e44b495eb8d20e172f, type: 2}
+  m_sharedMaterial: {fileID: -6729150285623667648, guid: 0eb5ba0eebb601e44b495eb8d20e172f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3877,8 +3878,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u7814\u7A76\u8005"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9c4d22597b39eb243b3fef1b23016b70, type: 2}
-  m_sharedMaterial: {fileID: -6710231647387607583, guid: 9c4d22597b39eb243b3fef1b23016b70, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0eb5ba0eebb601e44b495eb8d20e172f, type: 2}
+  m_sharedMaterial: {fileID: -6729150285623667648, guid: 0eb5ba0eebb601e44b495eb8d20e172f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
