@@ -3,9 +3,11 @@ using System.Runtime.InteropServices;
 
 public class DataCopy : MonoBehaviour
 {
+#if UNITY_WEBGL && !UNITY_EDITOR
     //WebGL用のJavaScript関数をインポート
     [DllImport("__Internal")]
     private static extern void CopyToClipboard(string text);
+#endif
 
     //ボタンが押された時
     public void CopyDiagnosisData()
