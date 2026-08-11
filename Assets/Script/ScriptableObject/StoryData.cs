@@ -42,6 +42,7 @@ public class Story
 [System.Serializable]
 public class Diagnosis
 {
+    [TextArea] public string situation;
     [TextArea] public string question1;
     [TextArea] public string question2;
     [TextArea] public string question3;

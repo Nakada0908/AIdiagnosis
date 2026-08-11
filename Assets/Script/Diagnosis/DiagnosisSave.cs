@@ -29,6 +29,7 @@ public class DiagnosisSave : MonoBehaviour
     {
         Diagnosis record = new Diagnosis();
 
+        record.situation = diagnosis.situation;
         record.question1 = diagnosis.question1;
         record.question2 = diagnosis.question2;
         record.question3 = diagnosis.question3;
