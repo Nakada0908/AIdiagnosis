@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storys:
   - characterImage:
-    - {fileID: 0}
+    - {fileID: 2104764090818324080, guid: d6e19d5e27c92e3479cf4c28ddaf452b, type: 3}
     - {fileID: 0}
     - {fileID: 0}
     storyText: "\u3053\u3053\u3067\u306F\u69D8\u3005\u306A\u4ED5\u4E8B\u3092\u4F53\u9A13\u3059\u308B\u3088\u3046\u3060\u306D"
@@ -31,7 +31,7 @@ MonoBehaviour:
     voiceClip: {fileID: 0}
     seClip: {fileID: 0}
   - characterImage:
-    - {fileID: 0}
+    - {fileID: 9149880576120627129, guid: 8df6e274954d7dc45baa5b5f97e53bbd, type: 3}
     - {fileID: 0}
     - {fileID: 0}
     storyText: "\u3084\u306F\u308A\u4ED5\u4E8B\u3068\u3044\u3046\u306E\u306F\u5927\u5909\u3060"
@@ -48,7 +48,7 @@ MonoBehaviour:
     voiceClip: {fileID: 0}
     seClip: {fileID: 0}
   - characterImage:
-    - {fileID: 0}
+    - {fileID: 2104764090818324080, guid: d6e19d5e27c92e3479cf4c28ddaf452b, type: 3}
     - {fileID: 0}
     - {fileID: 0}
     storyText: "\u3057\u304B\u3057\u50CD\u304B\u306A\u304F\u3066\u306F\u304A\u91D1\u3092\u7A3C\u3052\u306A\u3044\u3002\n\u304A\u91D1\u304C\u306A\u3044\u3068\u751F\u6D3B\u304C\u3067\u304D\u306A\u3044\u3002\n\u3044\u3084\u3001\u547D\u306B\u304B\u304B\u308F\u308B\u3068\u3082\u3044\u3048\u3088\u3046"
@@ -65,7 +65,7 @@ MonoBehaviour:
     voiceClip: {fileID: 0}
     seClip: {fileID: 0}
   - characterImage:
-    - {fileID: 0}
+    - {fileID: 2104764090818324080, guid: d6e19d5e27c92e3479cf4c28ddaf452b, type: 3}
     - {fileID: 0}
     - {fileID: 0}
     storyText: "\u305D\u3093\u306A\u4E2D\u3001\u4EBA\u3005\u306F\u305D\u308C\u305E\u308C\u306E\u9078\u629E\u3092\u3059\u308B"
@@ -82,7 +82,7 @@ MonoBehaviour:
     voiceClip: {fileID: 0}
     seClip: {fileID: 0}
   - characterImage:
-    - {fileID: 0}
+    - {fileID: 7120216138942596580, guid: aa21b616563e8934da649086f3cb0292, type: 3}
     - {fileID: 0}
     - {fileID: 0}
     storyText: "\u541B\u306B\u554F\u304A\u3046"
@@ -99,7 +99,7 @@ MonoBehaviour:
     voiceClip: {fileID: 0}
     seClip: {fileID: 0}
   - characterImage:
-    - {fileID: 0}
+    - {fileID: 7120216138942596580, guid: aa21b616563e8934da649086f3cb0292, type: 3}
     - {fileID: 0}
     - {fileID: 0}
     storyText: "\u541B\u304C\u4ECA\u307E\u3067\u3067\u4E00\u756A\u300C\u5272\u306B\u5408\u308F\u306A\u3044\u300D\u3068\u601D\u3063\u305F\n\u4ED5\u4E8B\u3084\u5F79\u5272\u306F\u306A\u3093\u3060\u3044\uFF1F\n\u305D\u308C\u3067\u3082\u7D9A\u3051\u305F\u306E\u304B\u3001\u3084\u3081\u305F\u306E\u304B\u3082\u6559\u3048\u3066\u304F\u308C"
@@ -286,5 +286,5 @@ MonoBehaviour:
     voiceClip: {fileID: 0}
     seClip: {fileID: 0}
   useBackground: 1
-  backGround: {fileID: 0}
+  backGround: {fileID: 21300000, guid: b1b17619790b12a42ae0a8edcf428943, type: 3}
   bgmClip: {fileID: 0}

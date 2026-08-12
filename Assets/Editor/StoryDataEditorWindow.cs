@@ -284,25 +284,8 @@ public class StoryDataEditorWindow : EditorWindow
         EditorGUILayout.Space();
         EditorGUILayout.LabelField("画像・サウンド設定", EditorStyles.boldLabel);
 
-        if (story.characterImage == null || story.characterImage.Length != 3)
-        {
-            System.Array.Resize(ref story.characterImage, 3);
-        }
-
-        EditorGUILayout.BeginVertical("helpbox");
-        EditorGUILayout.LabelField("キャラクター立ち絵 (画面に出す人物を毎回指定)", EditorStyles.boldLabel);
-
-        story.characterImage[0] = (Sprite)EditorGUILayout.ObjectField(" [1人目] 画像", story.characterImage[0], typeof(Sprite), false);
-
-        if (story.characterImage[0] != null)
-        {
-            story.characterImage[1] = (Sprite)EditorGUILayout.ObjectField(" [2人目] 画像", story.characterImage[1], typeof(Sprite), false);
-        }
-        if (story.characterImage[0] != null && story.characterImage[1] != null)
-        {
-            story.characterImage[2] = (Sprite)EditorGUILayout.ObjectField(" [3人目] 画像", story.characterImage[2], typeof(Sprite), false);
-        }
-        EditorGUILayout.EndVertical();
+        //立ち絵は進行タイプに関係なく画面に出るので、記述式や選択肢でも同じように設定できるようにしている
+        DrawCharacterImageSection(story);
 
         story.voiceClip = (AudioClip)EditorGUILayout.ObjectField("ボイス (Voice)", story.voiceClip, typeof(AudioClip), false);
         story.seClip = (AudioClip)EditorGUILayout.ObjectField("効果音 (SE)", story.seClip, typeof(AudioClip), false);
@@ -321,7 +304,7 @@ public class StoryDataEditorWindow : EditorWindow
             }
 
             //シチュエーションは画面に出さずAIへのプロンプトに渡すだけなので文字数制限はかけない
-            EditorGUILayout.LabelField("シチュエーション (situation) ※画面には表示されず、AIに渡す場面説明として使われます");
+            EditorGUILayout.LabelField("シチュエーション (situation) \n※画面には表示されず、AIに渡す場面説明として使われます");
             story.diagnosis.situation = EditorGUILayout.TextArea(story.diagnosis.situation, GUILayout.Height(40));
             if (string.IsNullOrWhiteSpace(story.diagnosis.situation))
             {
@@ -355,6 +338,53 @@ public class StoryDataEditorWindow : EditorWindow
 
         EditorGUILayout.EndScrollView();
         EditorGUILayout.EndVertical();
+    }
+
+    //立ち絵のアタッチ欄を描画する
+    //記述式でも入力欄の後ろに立ち絵は残るため、どの進行タイプでも同じ枠を出す
+    private void DrawCharacterImageSection(Story story)
+    {
+        if (story.characterImage == null || story.characterImage.Length != 3)
+        {
+            System.Array.Resize(ref story.characterImage, 3);
+        }
+
+        int setCount = 0;
+        for (int i = 0; i < story.characterImage.Length; i++)
+        {
+            if (story.characterImage[i] != null)
+            {
+                setCount++;
+            }
+        }
+
+        EditorGUILayout.BeginVertical("helpbox");
+        EditorGUILayout.LabelField($"キャラクター立ち絵 {setCount}/3 (画面に出す人物を毎回指定)", EditorStyles.boldLabel);
+
+        if (story.storyType == StoryType.Writing)
+        {
+            EditorGUILayout.HelpBox("記述式でも立ち絵は表示されます。入力欄でほとんど隠れますが、\nあるかないかで印象が変わるので必要なら設定してください。", MessageType.Info);
+        }
+
+        story.characterImage[0] = (Sprite)EditorGUILayout.ObjectField(GetCharacterImageLabel(1, story.characterImage[0]), story.characterImage[0], typeof(Sprite), false);
+
+        //1人目を空けたまま2人目以降を入れると表示側の人数カウントがずれるので、埋まっている分だけ次の枠を出す
+        if (story.characterImage[0] != null)
+        {
+            story.characterImage[1] = (Sprite)EditorGUILayout.ObjectField(GetCharacterImageLabel(2, story.characterImage[1]), story.characterImage[1], typeof(Sprite), false);
+        }
+        if (story.characterImage[0] != null && story.characterImage[1] != null)
+        {
+            story.characterImage[2] = (Sprite)EditorGUILayout.ObjectField(GetCharacterImageLabel(3, story.characterImage[2]), story.characterImage[2], typeof(Sprite), false);
+        }
+        EditorGUILayout.EndVertical();
+    }
+
+    //アタッチ中のスプライト名をラベルに出して、どの立ち絵を設定したかひと目で分かるようにする
+    private string GetCharacterImageLabel(int personNumber, Sprite sprite)
+    {
+        string spriteName = (sprite != null) ? sprite.name : "画像";
+        return $" [{personNumber}人目] {spriteName}";
     }
 
     //質問テキストの各行の文字数をチェックし、超過時にエラーボックスを表示する

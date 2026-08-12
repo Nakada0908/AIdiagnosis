@@ -202,7 +202,14 @@ MonoBehaviour:
   storyData:
   - {fileID: 11400000, guid: c23091b1210b6304a9223dc19b909578, type: 2}
   - {fileID: 11400000, guid: e7c4d6b3fc33e0341aaf78395b4fe740, type: 2}
+  - {fileID: 11400000, guid: 8277c6b820133554292cfc085c18ca86, type: 2}
+  - {fileID: 11400000, guid: 580cd0f1ee35c3f45b57a701f0b7653e, type: 2}
+  - {fileID: 11400000, guid: 3ea7bf090a08ae64c9b713b812c1269b, type: 2}
   - {fileID: 11400000, guid: 1674965ff33d05e47ab1dd8857b7bb47, type: 2}
+  - {fileID: 11400000, guid: 504e3246453b0a141a6b608938a4e0b4, type: 2}
+  - {fileID: 11400000, guid: c08eecde09a5ef341bab6fcfd20bfd15, type: 2}
+  - {fileID: 11400000, guid: 718e7f386e8c9144b8c14e43cf0a8218, type: 2}
+  - {fileID: 11400000, guid: 226306e7ff10d1c428615da8b1bafe7a, type: 2}
   - {fileID: 11400000, guid: a40aa9cfc87755e4ca0758db6ac6968e, type: 2}
   uiBlockImage: {fileID: 0}
   nextSceneName: UISelect1

@@ -1,0 +1,137 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 439c97aae18e6ee49963d1146376a3e8, type: 3}
+  m_Name: Novel_Questions2
+  m_EditorClassIdentifier: 
+  storys:
+  - characterImage:
+    - {fileID: 2104764090818324080, guid: d6e19d5e27c92e3479cf4c28ddaf452b, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
+    storyText: "\u3053\u3053\u306F\u30D5\u30A1\u30F3\u30BF\u30B8\u30FC\u306A\u4E16\u754C\u306E\u3088\u3046\u3060\u306D"
+    characterName: "\u7814\u7A76\u8005"
+    storyType: 0
+    diagnosis:
+      situation: 
+      question1: 
+      question2: 
+      question3: 
+      choiceNum: 0
+      answer: 
+      answerTime: 0
+    voiceClip: {fileID: 0}
+    seClip: {fileID: 0}
+  - characterImage:
+    - {fileID: 4472527105644925758, guid: 89ba8486ab150a04e8f715e0f148a654, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
+    storyText: "\u30D5\u30A1\u30F3\u30BF\u30B8\u30FC\u3068\u3044\u3048\u3070\u7570\u4E16\u754C\uFF01\n\u7570\u4E16\u754C\u3068\u3044\u3048\u3070\u7121\u53CC\uFF01"
+    characterName: "\u7814\u7A76\u8005"
+    storyType: 0
+    diagnosis:
+      situation: 
+      question1: 
+      question2: 
+      question3: 
+      choiceNum: 0
+      answer: 
+      answerTime: 0
+    voiceClip: {fileID: 0}
+    seClip: {fileID: 0}
+  - characterImage:
+    - {fileID: 2104764090818324080, guid: d6e19d5e27c92e3479cf4c28ddaf452b, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
+    storyText: "\u3057\u304B\u3057\u3001\u5F37\u5927\u306A\u529B\u304C\u3042\u3063\u3066\u3082\u624B\u306E\u5C4A\u304F\u7BC4\u56F2\u3068\u3044\u3046\u306E\u306F\n\u5C0F\u3055\u304F\u3001\u96F6\u308C\u843D\u3061\u308B\u3082\u306E\u3070\u304B\u308A\u3060\u2026\u2026"
+    characterName: "\u7814\u7A76\u8005"
+    storyType: 0
+    diagnosis:
+      situation: 
+      question1: 
+      question2: 
+      question3: 
+      choiceNum: 0
+      answer: 
+      answerTime: 0
+    voiceClip: {fileID: 0}
+    seClip: {fileID: 0}
+  - characterImage:
+    - {fileID: 7120216138942596580, guid: aa21b616563e8934da649086f3cb0292, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
+    storyText: "\u3068\u3044\u3046\u308F\u3051\u3067\u541B\u306B\u554F\u304A\u3046"
+    characterName: "\u7814\u7A76\u8005"
+    storyType: 0
+    diagnosis:
+      situation: 
+      question1: 
+      question2: 
+      question3: 
+      choiceNum: 0
+      answer: 
+      answerTime: 0
+    voiceClip: {fileID: 0}
+    seClip: {fileID: 0}
+  - characterImage:
+    - {fileID: 7120216138942596580, guid: aa21b616563e8934da649086f3cb0292, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
+    storyText: "\u541B\u304C\u8AB0\u304B\u3092\u300C\u8A31\u305B\u306A\u3044\u300D\u3068\u601D\u3063\u305F\u3068\u304D\u3001\n\u305D\u306E\u6C17\u6301\u3061\u306F\u3069\u3046\u3084\u3063\u3066\u53CE\u307E\u3063\u305F\u3093\u3060\u3044\uFF1F\n\u307E\u3060\u53CE\u307E\u3063\u3066\u3044\u306A\u3044\u306A\u3089\u3001\u305D\u308C\u3067\u3082\u69CB\u308F\u306A\u3044\u3088"
+    characterName: "\u7814\u7A76\u8005"
+    storyType: 2
+    diagnosis:
+      situation: "\u7570\u4E16\u754C\u30B9\u30C6\u30FC\u30B8\u306E\u81EA\u7531\u8A18\u8FF0\u3002\u8AB0\u304B\u3092\u8A31\u305B\u306A\u304B\u3063\u305F\u6C17\u6301\u3061\u304C\u3069\u3046\u53CE\u307E\u3063\u305F\u304B\u3092\u66F8\u304B\u305B\u3066\u3044\u308B"
+      question1: 
+      question2: 
+      question3: 
+      choiceNum: 0
+      answer: 
+      answerTime: 0
+    voiceClip: {fileID: 0}
+    seClip: {fileID: 0}
+  - characterImage:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    storyText: "\u9053\u7AEF\u3067\u3001\u77E5\u3089\u306A\u3044\u884C\u5546\u4EBA\u304C\u5927\u30B1\u30AC\u3092\u3057\u3066\u5012\u308C\u3066\u3044\u308B\u3002"
+    characterName: 
+    storyType: 1
+    diagnosis:
+      situation: "\u7570\u4E16\u754C\u3002\u9053\u7AEF\u3067\u898B\u77E5\u3089\u306C\u884C\u5546\u4EBA\u304C\u5927\u30B1\u30AC\u3092\u3057\u3066\u5012\u308C\u3066\u3044\u308B\u5834\u9762"
+      question1: "\u81EA\u5206\u304C\u6301\u3063\u3066\u3044\u308B\u4E00\u756A\u3044\u3044\u56DE\u5FA9\u85AC\u3092\u3042\u3052\u3066\u52A9\u3051\u308B"
+      question2: "\u76D7\u8CCA\u306E\u7F60\u304B\u3082\u3057\u308C\u306A\u3044\u306E\u3067\u3001\u8B66\u6212\u3057\u3066\u901A\u308A\u904E\u304E\u308B"
+      question3: "\u300C\u52A9\u3051\u3066\u307B\u3057\u3051\u308C\u3070\u3001\u6301\u3063\u3066\u3044\u308B\u304A\u5B9D\u3092\u9802\u6234\u300D\n\u3068\u6761\u4EF6\u3092\u51FA\u3059"
+      choiceNum: 0
+      answer: 
+      answerTime: 0
+    voiceClip: {fileID: 0}
+    seClip: {fileID: 0}
+  - characterImage:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    storyText: "\u3053\u306E\u5148\u3069\u3063\u3061\u306E\u9053\u306B\u9032\u3080\u304B\u3067\u3001\u4EF2\u9593\u3068\u610F\u898B\u304C\u534A\u5206\u306B\u5272\u308C\u3066\u63C9\u3081\u3066\u3044\u308B\u3002"
+    characterName: 
+    storyType: 1
+    diagnosis:
+      situation: "\u7570\u4E16\u754C\u3002\u9032\u3080\u9053\u3092\u3081\u3050\u3063\u3066\u4EF2\u9593\u3068\u610F\u898B\u304C\u534A\u5206\u306B\u5272\u308C\u3066\u63C9\u3081\u3066\u3044\u308B\u5834\u9762"
+      question1: "\u591A\u6570\u6C7A\u3092\u3068\u3063\u3066\u3001\u65E9\u304F\u5148\u3078\u9032\u3080"
+      question2: "\u5168\u54E1\u304C\u7D0D\u5F97\u3059\u308B\u307E\u3067\u8A71\u3057\u5408\u3046"
+      question3: "\u4E00\u756A\u8A73\u3057\u3044\u8005\u306E\u5224\u65AD\u306B\u4EFB\u305B\u308B"
+      choiceNum: 0
+      answer: 
+      answerTime: 0
+    voiceClip: {fileID: 0}
+    seClip: {fileID: 0}
+  useBackground: 1
+  backGround: {fileID: -8196108729953462829, guid: 3f6be75416b9e084e81f0afcbc7c60c6, type: 3}
+  bgmClip: {fileID: 0}
