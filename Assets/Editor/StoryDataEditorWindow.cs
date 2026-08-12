@@ -308,7 +308,8 @@ public class StoryDataEditorWindow : EditorWindow
         story.seClip = (AudioClip)EditorGUILayout.ObjectField("効果音 (SE)", story.seClip, typeof(AudioClip), false);
 
         //進行タイプに応じて診断データの入力枠を表示
-        if (story.storyType == StoryType.Choice || story.storyType == StoryType.JudgeEnding)
+        //Writingは選択肢を使わないが、situationはAIに渡すため入力できるようにする
+        if (story.storyType == StoryType.Choice || story.storyType == StoryType.JudgeEnding || story.storyType == StoryType.Writing)
         {
             EditorGUILayout.Space();
             EditorGUILayout.BeginVertical("helpbox");
@@ -319,19 +320,36 @@ public class StoryDataEditorWindow : EditorWindow
                 story.diagnosis = new Diagnosis();
             }
 
-            EditorGUILayout.LabelField("質問 / 選択肢 1");
-            story.diagnosis.question1 = EditorGUILayout.TextArea(story.diagnosis.question1, GUILayout.Height(40));
-            CheckQuestionCharLimit(story.diagnosis.question1, "質問 / 選択肢 1");
+            //シチュエーションは画面に出さずAIへのプロンプトに渡すだけなので文字数制限はかけない
+            EditorGUILayout.LabelField("シチュエーション (situation) ※画面には表示されず、AIに渡す場面説明として使われます");
+            story.diagnosis.situation = EditorGUILayout.TextArea(story.diagnosis.situation, GUILayout.Height(40));
+            if (string.IsNullOrWhiteSpace(story.diagnosis.situation))
+            {
+                EditorGUILayout.HelpBox("シチュエーションが未入力です。AIがどんな場面での回答か判断できなくなります。", MessageType.Warning);
+            }
             EditorGUILayout.Space();
 
-            EditorGUILayout.LabelField("質問 / 選択肢 2");
-            story.diagnosis.question2 = EditorGUILayout.TextArea(story.diagnosis.question2, GUILayout.Height(40));
-            CheckQuestionCharLimit(story.diagnosis.question2, "質問 / 選択肢 2");
-            EditorGUILayout.Space();
+            if (story.storyType == StoryType.Writing)
+            {
+                //自由記述ではストーリーテキストが設問として使われ、選択肢は実行時に消される
+                EditorGUILayout.HelpBox("自由記述タイプです。上のストーリーテキストがそのまま設問になり、選択肢は使われません。", MessageType.Info);
+            }
+            else
+            {
+                EditorGUILayout.LabelField("質問 / 選択肢 1");
+                story.diagnosis.question1 = EditorGUILayout.TextArea(story.diagnosis.question1, GUILayout.Height(40));
+                CheckQuestionCharLimit(story.diagnosis.question1, "質問 / 選択肢 1");
+                EditorGUILayout.Space();
 
-            EditorGUILayout.LabelField("質問 / 選択肢 3");
-            story.diagnosis.question3 = EditorGUILayout.TextArea(story.diagnosis.question3, GUILayout.Height(40));
-            CheckQuestionCharLimit(story.diagnosis.question3, "質問 / 選択肢 3");
+                EditorGUILayout.LabelField("質問 / 選択肢 2");
+                story.diagnosis.question2 = EditorGUILayout.TextArea(story.diagnosis.question2, GUILayout.Height(40));
+                CheckQuestionCharLimit(story.diagnosis.question2, "質問 / 選択肢 2");
+                EditorGUILayout.Space();
+
+                EditorGUILayout.LabelField("質問 / 選択肢 3");
+                story.diagnosis.question3 = EditorGUILayout.TextArea(story.diagnosis.question3, GUILayout.Height(40));
+                CheckQuestionCharLimit(story.diagnosis.question3, "質問 / 選択肢 3");
+            }
             EditorGUILayout.EndVertical();
         }
 
