@@ -7,7 +7,13 @@ public class GameSettings : MonoBehaviour
     {
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 60;
-        Screen.SetResolution(1920,1080, FullScreenMode.FullScreenWindow);
+
+        //スマホで解像度を固定すると、その絵が実機の画面いっぱいに引き伸ばされて歪むのでPCだけにする
+        //……特殊なモニターへの対策もしないと
+#if !UNITY_ANDROID && !UNITY_IOS
+        Screen.SetResolution(1920, 1080, FullScreenMode.FullScreenWindow);
+#endif
+
         InputManager.Instance.SwitchMode(InputMode.Novel);
 
         //エディターでのテスト時はtitleを起動しないようにする
