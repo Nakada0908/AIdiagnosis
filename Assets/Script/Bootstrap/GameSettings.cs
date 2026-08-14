@@ -9,7 +9,7 @@ public class GameSettings : MonoBehaviour
         Application.targetFrameRate = 60;
 
         //スマホで解像度を固定すると、その絵が実機の画面いっぱいに引き伸ばされて歪むのでPCだけにする
-        //……特殊なモニターへの対策もしないと
+        //……特殊なモニターへの対策もしないとかな
 #if !UNITY_ANDROID && !UNITY_IOS
         Screen.SetResolution(1920, 1080, FullScreenMode.FullScreenWindow);
 #endif
