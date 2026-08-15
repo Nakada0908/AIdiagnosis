@@ -1,12 +1,13 @@
 using UnityEngine;
 
-public class SwitchSceneButton : MonoBehaviour
+public class SwitchCanvasButton : MonoBehaviour
 {
     [SerializeField] private GameObject fesCanvas;
     [SerializeField] private GameObject templeCanvas;
 
     void Start()
     {
+        fesCanvas.SetActive(true);
         templeCanvas.SetActive(false);
     }
 
