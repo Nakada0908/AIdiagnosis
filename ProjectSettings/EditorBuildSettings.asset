@@ -23,36 +23,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Ending.unity
     guid: a147557f89135e1468cc144c34ac8f6e
-  - enabled: 1
-    path: Assets/Scenes/Ending/Ending_Bd.unity
-    guid: a87b857547b30e94f950e3406d45754d
-  - enabled: 1
-    path: Assets/Scenes/Ending/Ending_Bh.unity
-    guid: 7f12d5cd4bb230248826b4c31ba8dc9e
-  - enabled: 1
-    path: Assets/Scenes/Ending/Ending_Bn.unity
-    guid: 0dee77ebd0f410846808815ffaa89f16
-  - enabled: 1
-    path: Assets/Scenes/Ending/Ending_Hd.unity
-    guid: 8a94cdc49f0fa254ca01a015f4d51414
-  - enabled: 1
-    path: Assets/Scenes/Ending/Ending_Hh.unity
-    guid: 8a95cd7c0dfc63545ab8aa43b43bd79a
-  - enabled: 1
-    path: Assets/Scenes/Ending/Ending_Hn.unity
-    guid: 07037ec9ae9bd6a49a2d4c5bda5fe5a8
-  - enabled: 1
-    path: Assets/Scenes/Ending/Ending_Md.unity
-    guid: 945176f0e146804498709ed05010e7a1
-  - enabled: 1
-    path: Assets/Scenes/Ending/Ending_Mh.unity
-    guid: d73a79b867ffcd54e9bb5a543d22de5d
-  - enabled: 1
-    path: Assets/Scenes/Ending/Ending_Mn.unity
-    guid: 2b7b7413806e9cb44aa654d7d94b9bf2
-  - enabled: 1
-    path: Assets/Scenes/TrueEnd.unity
-    guid: 80118ca137df2604cbf2e1b46b38e17b
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
