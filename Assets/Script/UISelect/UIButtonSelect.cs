@@ -1,9 +1,12 @@
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class UIButtonSelect : MonoBehaviour
 {
+    [SerializeField] private Vector3 defaultButtonScale = Vector3.one;
+
     private StoryManager storyManager;
 
     private void Start()
@@ -26,6 +29,12 @@ public class UIButtonSelect : MonoBehaviour
             {
                 targetButton.interactable = false;
             }
+
+            //動いている演出を止めて、元のサイズに戻す
+            //DOTweenAnimation の tween は GameObject が target なので、Transform ではなく GameObject を渡す
+            DOTween.Kill(clickedObj);
+            clickedObj.transform.localScale = defaultButtonScale;
+
             EventSystem.current.SetSelectedGameObject(null);
         }
     }
