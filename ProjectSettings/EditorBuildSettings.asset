@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/Scenes/UISelect2.unity
     guid: c1db61182d5d9e94cb3a9fb084bf6692
   - enabled: 1
-    path: Assets/Scenes/EndBefore.unity
+    path: Assets/Scenes/Ending.unity
     guid: a147557f89135e1468cc144c34ac8f6e
   - enabled: 1
     path: Assets/Scenes/Ending/Ending_Bd.unity

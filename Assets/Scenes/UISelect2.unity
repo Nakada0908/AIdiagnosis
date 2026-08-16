@@ -3744,7 +3744,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 418a3b3268303af44ac304d05ee7e964, type: 2}
   - {fileID: 11400000, guid: 7fcd7e980cd86854eafb94aae0803ece, type: 2}
   uiBlockImage: {fileID: 1180260682}
-  nextSceneName: EndBefore
+  nextSceneName: Ending
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

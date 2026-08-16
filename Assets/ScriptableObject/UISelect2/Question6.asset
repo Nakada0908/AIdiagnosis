@@ -25,9 +25,9 @@ MonoBehaviour:
       question1: "\u3068\u308A\u3042\u3048\u305A\u4E00\u7DD2\u306B\u62CD\u624B\u3059\u308B"
       question2: "\u4F55\u304C\u8D77\u304D\u305F\u306E\u304B\u3001\u307E\u305A\u78BA\u304B\u3081\u308B"
       question3: "\u8208\u5473\u304C\u306A\u3044\u306E\u3067\u3001\u305D\u306E\u307E\u307E\u6B69\u304F"
-      choiceNum: 0
+      choiceNum: 2
       answer: 
-      answerTime: 0
+      answerTime: 0.43287817
     voiceClip: {fileID: 0}
     seClip: {fileID: 0}
   useBackground: 0

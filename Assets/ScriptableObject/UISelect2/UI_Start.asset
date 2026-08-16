@@ -34,7 +34,7 @@ MonoBehaviour:
     - {fileID: 2104764090818324080, guid: d6e19d5e27c92e3479cf4c28ddaf452b, type: 3}
     - {fileID: 0}
     - {fileID: 0}
-    storyText: "\u3082\u3046\u7D42\u308F\u308A\u306E\u6642\u9593\u3089\u3057\u3044\u3002\n\u63D0\u706F\u304C\u4E00\u3064\u305A\u3064\u843D\u3068\u3055\u308C\u3066\u3044\u304F\u3088"
+    storyText: "\u590F\u796D\u308A\u3082\u7D42\u308F\u308A\u306B\u5411\u304B\u3063\u3066\u3044\u308B"
     characterName: "\u7814\u7A76\u8005"
     storyType: 0
     diagnosis:
@@ -51,7 +51,7 @@ MonoBehaviour:
     - {fileID: 2104764090818324080, guid: d6e19d5e27c92e3479cf4c28ddaf452b, type: 3}
     - {fileID: 0}
     - {fileID: 0}
-    storyText: "\u3053\u3046\u3044\u3046\u5834\u6240\u3067\u306F\u3001\u4EBA\u306F\u5C11\u3057\u3060\u3051\u7D20\u306B\u306A\u308B"
+    storyText: "\u305D\u3057\u3066\u3053\u306E\u8A3A\u65AD\u3082"
     characterName: "\u7814\u7A76\u8005"
     storyType: 0
     diagnosis:
@@ -90,12 +90,12 @@ MonoBehaviour:
     storyType: 2
     diagnosis:
       situation: "\u590F\u796D\u308A\u30B9\u30C6\u30FC\u30B8\u306E\u81EA\u7531\u8A18\u8FF0\u3002\u3053\u3053\u307E\u3067\u3067\u4E00\u756A\u8FF7\u3063\u305F\u8A2D\u554F\u3068\u3001\u8FF7\u3063\u305F\u7406\u7531\u3092\u66F8\u304B\u305B\u3066\u3044\u308B"
-      question1: 
+      question1: "\u3053\u3053\u307E\u3067\u306E\u8CEA\u554F\u306E\u4E2D\u3067\u3001\n\u4E00\u756A\u7B54\u3048\u308B\u306E\u306B\u8FF7\u3063\u305F\u306E\u306F\u3069\u308C\u3060\u3044\uFF1F\n\u306A\u305C\u8FF7\u3063\u305F\u306E\u304B\u3082\u6559\u3048\u3066\u304F\u308C\u305F\u307E\u3048"
       question2: 
       question3: 
       choiceNum: 0
       answer: 
-      answerTime: 0
+      answerTime: 1.3686942
     voiceClip: {fileID: 0}
     seClip: {fileID: 0}
   useBackground: 0

@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 439c97aae18e6ee49963d1146376a3e8, type: 3}
-  m_Name: Bh
+  m_Name: Dounyuu
   m_EditorClassIdentifier: 
   storys:
   - characterImage:
+    - {fileID: -9196898838475307158, guid: c244274ea85ca66418916808e5f909c8, type: 3}
     - {fileID: 0}
     - {fileID: 0}
-    - {fileID: 0}
-    storyText: "\u3042"
+    storyText: "\u30C1\u30AD\u30F3\u304C\u51B7\u3081\u3066\u3057\u307E\u3063\u305F\u2026\u2026"
     characterName: "\u7814\u7A76\u8005"
     storyType: 0
     diagnosis:
@@ -31,5 +31,5 @@ MonoBehaviour:
     voiceClip: {fileID: 0}
     seClip: {fileID: 0}
   useBackground: 1
-  backGround: {fileID: 21300000, guid: abf2b1003f6adcb4e9ee2f6295967b1c, type: 3}
+  backGround: {fileID: 21300000, guid: 2a6626f8b17b8584799742e17042a3d5, type: 3}
   bgmClip: {fileID: 0}
